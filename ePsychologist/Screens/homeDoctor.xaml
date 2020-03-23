@@ -88,7 +88,9 @@
         <Label Content="Typ Choroby" Grid.Column="8" Grid.ColumnSpan="4" Grid.Row="0" Grid.RowSpan="3" Background="#0078d7" Foreground="white" FontSize="15" Margin="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
         <Label Content="diagnosed illnes content" Grid.Column="12" Grid.ColumnSpan="11" Grid.Row="0" Grid.RowSpan="3" BorderBrush="#0078d7" BorderThickness="2" Foreground="white" FontSize="17" Margin="1"/>
 
-        <Label Content="Opis choroby" Grid.Column="8" Grid.ColumnSpan="23" Grid.Row="3" Grid.RowSpan="2" Background="#243a5e" Foreground="white" FontSize="17" Margin="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <Label Content="Opis choroby" Grid.Column="8" Grid.ColumnSpan="18" Grid.Row="3" Grid.RowSpan="2" Background="#243a5e" Foreground="white" FontSize="17" Margin="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <Button Content="Ponowna analiza" Grid.Column="26" Grid.ColumnSpan="5" Grid.Row="3" Grid.RowSpan="2" Background="#d83b01" Foreground="white" FontSize="15" Margin="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+
         <TextBox Text="Lorem Ipsum" Grid.Column="8" Grid.ColumnSpan="23" Grid.Row="5" Grid.RowSpan="14"  Background="#737373" Foreground="white" FontSize="13" Margin="3"/>
     </Grid>
 </Page>
