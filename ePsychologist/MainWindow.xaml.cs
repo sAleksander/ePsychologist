@@ -23,6 +23,7 @@ namespace ePsychologist
         public MainWindow()
         {
             InitializeComponent();
+            Navigator.Content = new Login();
         }
     }
 }

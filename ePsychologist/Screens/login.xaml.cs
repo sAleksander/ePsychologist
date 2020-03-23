@@ -13,16 +13,17 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace ePsychologist.Screens
+namespace ePsychologist
 {
     /// <summary>
-    /// Interaction logic for login.xaml
+    /// Logika interakcji dla klasy Login.xaml
     /// </summary>
-    public partial class login : Page
+    public partial class Login : Page
     {
-        public login()
+        public Login()
         {
             InitializeComponent();
         }
+        
     }
 }
