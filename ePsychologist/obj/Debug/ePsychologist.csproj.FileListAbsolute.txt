@@ -28,9 +28,10 @@ C:\Users\Lenovo\Desktop\_szkola\_projektIV\ePsychologist\obj\Debug\ePsychologist
 C:\Users\Lenovo\Desktop\_szkola\_projektIV\ePsychologist\obj\Debug\ePsychologist.csproj.CoreCompileInputs.cache
 C:\Users\Lenovo\Desktop\_szkola\_projektIV\ePsychologist\obj\Debug\ePsychologist.exe
 C:\Users\Lenovo\Desktop\_szkola\_projektIV\ePsychologist\obj\Debug\ePsychologist.pdb
-C:\Users\Lenovo\Desktop\_szkola\_projektIV\ePsychologist\obj\Debug\Screens\Login.g.cs
-C:\Users\Lenovo\Desktop\_szkola\_projektIV\ePsychologist\obj\Debug\Screens\homeDoctor.g.cs
-C:\Users\Lenovo\Desktop\_szkola\_projektIV\ePsychologist\obj\Debug\Screens\homePatient.g.cs
-C:\Users\Lenovo\Desktop\_szkola\_projektIV\ePsychologist\obj\Debug\Screens\Login.baml
-C:\Users\Lenovo\Desktop\_szkola\_projektIV\ePsychologist\obj\Debug\Screens\homeDoctor.baml
-C:\Users\Lenovo\Desktop\_szkola\_projektIV\ePsychologist\obj\Debug\Screens\homePatient.baml
+C:\Users\Lenovo\Desktop\_szkola\_projektIV\ePsychologist\obj\Debug\View\Login.g.cs
+C:\Users\Lenovo\Desktop\_szkola\_projektIV\ePsychologist\obj\Debug\View\homeDoctor.g.cs
+C:\Users\Lenovo\Desktop\_szkola\_projektIV\ePsychologist\obj\Debug\View\homePatient.g.cs
+C:\Users\Lenovo\Desktop\_szkola\_projektIV\ePsychologist\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\Lenovo\Desktop\_szkola\_projektIV\ePsychologist\obj\Debug\View\Login.baml
+C:\Users\Lenovo\Desktop\_szkola\_projektIV\ePsychologist\obj\Debug\View\homeDoctor.baml
+C:\Users\Lenovo\Desktop\_szkola\_projektIV\ePsychologist\obj\Debug\View\homePatient.baml

@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\Lenovo\Desktop\_szkola\_projektIV\ePsychologist\App.xaml
-427187039
+41004708949
 
-12-986271787
+16249454380
 131569487696
-Screens\Login.xaml;MainWindow.xaml;Screens\homeDoctor.xaml;Screens\homePatient.xaml;
+View\Login.xaml;MainWindow.xaml;View\homeDoctor.xaml;View\homePatient.xaml;
 
 True
 
