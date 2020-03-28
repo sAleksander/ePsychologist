@@ -16,18 +16,13 @@ using System.Windows.Shapes;
 namespace ePsychologist
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Logika interakcji dla klasy changePersonalData.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class changePersonalData : Page
     {
-        public MainWindow()
+        public changePersonalData()
         {
             InitializeComponent();
-        }
-
-        private void Doit_Click(object sender, RoutedEventArgs e)
-        {
-            
         }
     }
 }

@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\szulc\Desktop\Projects\Polap\ePsychologist\ePsychologist\obj\Debug\
+C:\Users\Kasia\Desktop\PROJEKT\ePsychologist\ePsychologist\obj\Debug\
 ePsychologist
 none
 false
 DEBUG;TRACE
-C:\Users\szulc\Desktop\Projects\Polap\ePsychologist\ePsychologist\App.xaml
-427154239
+C:\Users\Kasia\Desktop\PROJEKT\ePsychologist\ePsychologist\App.xaml
+42141960839
 
-122020380961
+9169580920
 131569487696
-MainWindow.xaml;Screens\homeDoctor.xaml;Screens\homePatient.xaml;Screens\login.xaml;
+changePersonalData.xaml;homePatient.xaml;MainWindow.xaml;sicknessInfPage.xaml;
 
 True
 
