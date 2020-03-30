@@ -8,34 +8,50 @@ namespace ePsychologist.ViewModels
     public class LoginViewModel : BasicViewModel
     {
         public LoginViewModel() { }
-        private User user=new User();
+
+        private string username;
         public string Username
         {
-            get { return user.Username; }
+            get { return username; }
             set
             {
-                if (user.Username != value)
+                if (username != value)
                 {
-                    user.Username = value;
+                    username = value;
                     OnPropertyChange(nameof(Username));
                     
                 }
             }
         }
 
-        public SecureString Password
+        private string password;
+        public string Password
         {
-            get { return user.Password; }
+            get { return password; }
             set
             {
-                if (user.Password != value)
+                if (password != value)
                 {
-                    user.Password = value;
+                    password = value;
                     OnPropertyChange("Password");
                 }
             }
         }
-        
+
+        private string error;
+        public string Error
+        {
+            get { return error; }
+            set
+            {
+                if (error != value)
+                {
+                    error = value;
+                    OnPropertyChange(nameof(Error));
+
+                }
+            }
+        }
 
         private ICommand clearCommand;
         public ICommand Clear
@@ -46,5 +62,18 @@ namespace ePsychologist.ViewModels
                 return clearCommand;
             }
         }
+
+
+        private ICommand loginCommand;
+        public ICommand Login
+        {
+            get
+            {
+                if (loginCommand == null) loginCommand = new LoginCommand();
+                return loginCommand;
+            }
+        }
+
+
     }
 }

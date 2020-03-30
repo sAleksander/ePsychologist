@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ePsychologist"
         mc:Ignorable="d"
-        Title="MainWindow" Height="400" Width="700">
+        Title="ePsychologist" Height="400" Width="700">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition/>
@@ -14,6 +14,6 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         
-        <Frame Name="Navigator" Grid.Row="1" Grid.Column="1" Margin="5"/>
+        <Frame Name="Navigator" Grid.Row="1" Grid.Column="1" Margin="5" Source="View/Login.xaml"/>
     </Grid>
 </Window>

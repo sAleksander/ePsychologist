@@ -16,11 +16,12 @@
     <Grid DataContext="{StaticResource viewModel}">
         <Grid.RowDefinitions>
             <RowDefinition Height="1.4*"/>
-            <RowDefinition/>
+            <RowDefinition Height="0.8*"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0">
-            <Button x:Name="SignUpBt" Margin="0,30,30,0" HorizontalAlignment="Right" MinHeight="30" MinWidth="60">Sign up</Button>
+            <Label Foreground="Red" Content="{Binding Error, Mode=TwoWay}" MinHeight="30" />
+            <Button x:Name="SignUpBt" Margin="0,0,30,0" HorizontalAlignment="Right" MinHeight="30" MinWidth="60">Sign up</Button>
             <Image MaxWidth="250" HorizontalAlignment="Center" VerticalAlignment="Center" Source="../Content/logo.png"/>
         </StackPanel>
         <Grid Grid.Row="1">
@@ -34,13 +35,13 @@
             
 
             <StackPanel Grid.Column="1">
-                <Label x:Name="LoginLb" Margin="0 50 0 0" HorizontalAlignment="Left" Foreground="Black" Content="Login:"/>
+                <Label x:Name="LoginLb" Margin="0 25 0 0" HorizontalAlignment="Left" Foreground="Black" Content="Login:"/>
                 <TextBox x:Name="LoginTb" Text="{Binding Username, Mode=TwoWay}" Margin="10 0" MaxLength="12"/>
             </StackPanel>
 
             <StackPanel Grid.Column="2">
-                <Label x:Name="PasswordLb" Margin="0 50 0 0" HorizontalAlignment="Left" Foreground="Black" Content="Password:"/>
-                <PasswordBox x:Name="PasswordBox" Margin="10 0" MaxLength="12"/>
+                <Label x:Name="PasswordLb" Margin="0 25 0 0" HorizontalAlignment="Left" Foreground="Black" Content="Password:"/>
+                <TextBox x:Name="PasswordBox" Text="{Binding Password, Mode=TwoWay}" Margin="10 0" MaxLength="12"/>
             </StackPanel>
         </Grid>
 
@@ -52,11 +53,14 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <StackPanel Grid.Column="1">
-                <Button x:Name="SignInBt" Margin="0,10,10,0" HorizontalAlignment="Right" Height="30" Width="60" Content="Sign in" />  </StackPanel>
+                <Button x:Name="SignInBt" Margin="0,10,10,0" HorizontalAlignment="Right" Height="30" Width="60" Content="Sign in" 
+                 Command="{Binding Login, Mode=OneWay, Source={StaticResource viewModel}}"
+                 CommandParameter="{DynamicResource viewModel}"/>  
+            </StackPanel>
             <StackPanel Grid.Column="2">
                 <Button x:Name="ClearBt" Margin="10,10,0,0" HorizontalAlignment="Left" MinHeight="30" MinWidth="60" Content="Clear"
-               Command="{Binding Clear, Mode=OneWay, Source={StaticResource viewModel}}"
-                        CommandParameter="{DynamicResource viewModel}"/> 
+                 Command="{Binding Clear, Mode=OneWay, Source={StaticResource viewModel}}"
+                 CommandParameter="{DynamicResource viewModel}"/> 
             </StackPanel>
         </Grid>
 

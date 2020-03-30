@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Windows.Input;
+using ePsychologist.Models;
 
 namespace ePsychologist.ViewModels.LoginView
 {
-    public class ClearCommand : ICommand
-    {       
+    public class LoginCommand : ICommand
+    {
         public event EventHandler CanExecuteChanged;
 
         public bool CanExecute(object parameter)
@@ -17,8 +18,17 @@ namespace ePsychologist.ViewModels.LoginView
             LoginViewModel viewModel = parameter as LoginViewModel;
             if (viewModel != null)
             {
-                viewModel.Password = "";
-                viewModel.Username = "";
+                string login = viewModel.Username;
+                string password = viewModel.Password;
+                try
+                {
+                    Connection connection = new Connection();
+                }
+                catch
+                {
+                    viewModel.Error = "Connection failed";
+                }
+                
             }
         }
     }
