@@ -1,12 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Windows.Input;
+using ePsychologist.ViewModels.RegisterView;
 
 namespace ePsychologist.ViewModels
 {
-    class RegisterViewModel:BasicViewModel
+    public class RegisterViewModel : BasicViewModel
     {
+
+        private ICommand gotoLoginCommand;
+        public ICommand Gotologin
+        {
+            get
+            {
+                if (gotoLoginCommand == null) gotoLoginCommand = new GotoLoginCommand();
+                return gotoLoginCommand;
+            }
+        }
     }
 }

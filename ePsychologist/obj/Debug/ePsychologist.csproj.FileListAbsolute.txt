@@ -43,7 +43,7 @@ C:\Users\Lenovo\Desktop\_szkola\_projektIV\ePsychologist\bin\Debug\Google.Protob
 C:\Users\Lenovo\Desktop\_szkola\_projektIV\ePsychologist\bin\Debug\MySql.Data.xml
 C:\Users\Lenovo\Desktop\_szkola\_projektIV\ePsychologist\bin\Debug\Renci.SshNet.xml
 C:\Users\Lenovo\Desktop\_szkola\_projektIV\ePsychologist\obj\Debug\ePsychologist.csproj.CopyComplete
-C:\Users\Lenovo\Desktop\_szkola\_projektIV\ePsychologist\obj\Debug\ePsychologist.csprojAssemblyReference.cache
 C:\Users\Lenovo\Desktop\_szkola\_projektIV\ePsychologist\obj\Debug\App.baml
 C:\Users\Lenovo\Desktop\_szkola\_projektIV\ePsychologist\obj\Debug\View\Register.g.cs
 C:\Users\Lenovo\Desktop\_szkola\_projektIV\ePsychologist\obj\Debug\View\Register.baml
+C:\Users\Lenovo\Desktop\_szkola\_projektIV\ePsychologist\obj\Debug\ePsychologist.csprojAssemblyReference.cache

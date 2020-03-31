@@ -6,7 +6,7 @@
       xmlns:vm="clr-namespace:ePsychologist.ViewModels"
         xmlns:local="clr-namespace:ePsychologist"
         mc:Ignorable="d"
-        Title="ePsychologist" Height="400" Width="700">
+        Title="ePsychologist" Height="400" Width="700" MinHeight="380" MinWidth="600">
     <Window.Resources>
         <vm:MainViewModel x:Key="viewModel"/>
     </Window.Resources>
