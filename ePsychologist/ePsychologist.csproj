@@ -104,11 +104,15 @@
     <Compile Include="ViewModels\MainView\INavigator.cs" />
     <Compile Include="ViewModels\MainView\Navigator.cs" />
     <Compile Include="ViewModels\MainView\UpdateCurrentVMCommand.cs" />
+    <Compile Include="ViewModels\RegisterViewModel.cs" />
     <Compile Include="View\homeDoctor.xaml.cs">
       <DependentUpon>homeDoctor.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\homePatient.xaml.cs">
       <DependentUpon>homePatient.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Register.xaml.cs">
+      <DependentUpon>Register.xaml</DependentUpon>
     </Compile>
     <Page Include="View\Login.xaml">
       <SubType>Designer</SubType>
@@ -136,6 +140,10 @@
     <Page Include="View\homePatient.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Register.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
