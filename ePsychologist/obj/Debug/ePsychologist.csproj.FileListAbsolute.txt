@@ -44,3 +44,4 @@ C:\Users\Lenovo\Desktop\_szkola\_projektIV\ePsychologist\bin\Debug\MySql.Data.xm
 C:\Users\Lenovo\Desktop\_szkola\_projektIV\ePsychologist\bin\Debug\Renci.SshNet.xml
 C:\Users\Lenovo\Desktop\_szkola\_projektIV\ePsychologist\obj\Debug\ePsychologist.csproj.CopyComplete
 C:\Users\Lenovo\Desktop\_szkola\_projektIV\ePsychologist\obj\Debug\ePsychologist.csprojAssemblyReference.cache
+C:\Users\Lenovo\Desktop\_szkola\_projektIV\ePsychologist\obj\Debug\App.baml

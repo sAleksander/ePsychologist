@@ -95,9 +95,15 @@
     </ApplicationDefinition>
     <Compile Include="Models\Connection.cs" />
     <Compile Include="ViewModels\BasicViewModel.cs" />
+    <Compile Include="ViewModels\HomeDoctorViewModel.cs" />
+    <Compile Include="ViewModels\HomePatientViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\LoginView\ClearCommand.cs" />
     <Compile Include="ViewModels\LoginView\LoginCommand.cs" />
+    <Compile Include="ViewModels\MainViewModel.cs" />
+    <Compile Include="ViewModels\MainView\INavigator.cs" />
+    <Compile Include="ViewModels\MainView\Navigator.cs" />
+    <Compile Include="ViewModels\MainView\UpdateCurrentVMCommand.cs" />
     <Compile Include="View\homeDoctor.xaml.cs">
       <DependentUpon>homeDoctor.xaml</DependentUpon>
     </Compile>

@@ -3,17 +3,22 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:vm="clr-namespace:ePsychologist.ViewModels"
         xmlns:local="clr-namespace:ePsychologist"
         mc:Ignorable="d"
         Title="ePsychologist" Height="400" Width="700">
-    <Grid>
+    <Window.Resources>
+        <vm:MainViewModel x:Key="viewModel"/>
+    </Window.Resources>
+    
+    <Grid DataContext="{Binding viewModel}">
         <Grid.RowDefinitions>
             <RowDefinition/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        
-        <Frame Name="Navigator" Grid.Row="1" Grid.Column="1" Margin="5" Source="View/Login.xaml"/>
+
+        <Frame Name="Navigator" Grid.Row="1" Grid.Column="1" Margin="5" NavigationUIVisibility="Hidden" Content="{Binding Navigator.CurrentVM, Source={StaticResource viewModel}}"/>
     </Grid>
 </Window>

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Input;
 using ePsychologist.Models;
+using ePsychologist.ViewModels.MainView;
 
 namespace ePsychologist.ViewModels.LoginView
 {
@@ -23,10 +24,19 @@ namespace ePsychologist.ViewModels.LoginView
                 try
                 {
                     Connection connection = new Connection();
+                    viewModel.Error = "";
+                    char userType = connection.Login(viewModel.Username,viewModel.Password);
+                    if(userType == 'l')
+                        MainViewModel.Navigator.UpdateCurrentVMCommand.Execute(ViewType.HomeDoctor);
+                    else
+                        MainViewModel.Navigator.UpdateCurrentVMCommand.Execute(ViewType.HomePatient);
                 }
-                catch
+                catch(Exception e)
                 {
-                    viewModel.Error = "Connection failed";
+                    if(e.Message== "Wrong username or password")
+                        viewModel.Error = "Wrong username or password";
+                    else
+                        viewModel.Error = "Connection failed";
                 }
                 
             }

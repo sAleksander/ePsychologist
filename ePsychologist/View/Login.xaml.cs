@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace ePsychologist
+namespace ePsychologist.View
 {
     /// <summary>
     /// Logika interakcji dla klasy Login.xaml
