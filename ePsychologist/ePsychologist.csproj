@@ -104,6 +104,7 @@
     <Compile Include="ViewModels\MainView\INavigator.cs" />
     <Compile Include="ViewModels\MainView\Navigator.cs" />
     <Compile Include="ViewModels\MainView\UpdateCurrentVMCommand.cs" />
+    <Compile Include="ViewModels\RelayCommand.cs" />
     <Compile Include="View\homeDoctor.xaml.cs">
       <DependentUpon>homeDoctor.xaml</DependentUpon>
     </Compile>
