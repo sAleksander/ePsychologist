@@ -9,6 +9,7 @@ namespace ePsychologist.ViewModels.MainView
         HomeDoctor,
         HomePatient
     }
+
     public interface INavigator
     {
         BasicViewModel CurrentVM { get; set;}

@@ -13,8 +13,8 @@ namespace ePsychologist.Models
         private static Connection dbConnection;
         public Connection()
         {
-            String connetionString = @"host=83.230.14.31;port=12345;user id=user;password=heheszki;database=schizofrenia;";
-            cnn = new MySqlConnection(connetionString);
+            String connetionString = $"host={ePsychologist.Properties.Resources.DB_HOST};port={ePsychologist.Properties.Resources.DB_PORT};user id={ePsychologist.Properties.Resources.DB_USER};password={ePsychologist.Properties.Resources.DB_PASS};database={ePsychologist.Properties.Resources.DB};";
+            cnn = new MySqlConnection(@connetionString);
             cnn.Open();
         }
         public static Connection DbConnection
@@ -46,7 +46,20 @@ namespace ePsychologist.Models
                 }
             }
             return userType;
+        }
 
+        public void Register(string name, string surname, char sex, string dateOfBirth, string username, string password, char accoundType)
+        {
+            string query = $"Insert into users(name, surname, username, password, type, sex, date_of_birth) values('{name}', '{surname}', '{username}', '{password}' ,'{accoundType}', '{sex}', '{dateOfBirth}'); ";
+            MySqlCommand command = new MySqlCommand(query, cnn);
+            try
+            {
+                command.ExecuteNonQuery();
+            }
+            catch
+            {
+                throw new Exception("Invaild data"); 
+            }
         }
 
     }

@@ -33,7 +33,7 @@ namespace ePsychologist.ViewModels.LoginView
                 }
                 catch(Exception e)
                 {
-                    if(e.Message== "Wrong username or password")
+                    if(e.Message == "Wrong username or password")
                         viewModel.Error = "Wrong username or password";
                     else
                         viewModel.Error = "Connection failed";

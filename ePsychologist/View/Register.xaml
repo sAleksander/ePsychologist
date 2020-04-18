@@ -7,7 +7,7 @@
       xmlns:vm="clr-namespace:ePsychologist.ViewModels"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="Register" Background="white">
+      Title="Register">
 
     <Page.Resources>
         <vm:RegisterViewModel x:Key="viewModel"/>
@@ -21,6 +21,8 @@
         <StackPanel Grid.Row="0">
             <Button HorizontalAlignment="Left" Content=" Back " Margin="5" Command="{Binding Gotologin, Mode=OneWay, Source={StaticResource viewModel}}"/>
             <Label Content="Sign Up" FontSize="40" HorizontalAlignment="Center" Margin="0,-30,0,0"/>
+            <Label Foreground="Red" MinHeight="30" Margin="0 -10" Content="{Binding ErrorLb, Source={StaticResource viewModel}}" />
+            <Label Foreground="Green" MinHeight="30" Margin="0 -20" Content="{Binding SuccessLb, Source={StaticResource viewModel}}" />
         </StackPanel>
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
@@ -28,33 +30,53 @@
                 <ColumnDefinition Width="0.5*"/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <StackPanel Grid.Column="0">
-                <Label Content="Name" HorizontalAlignment="Left" Margin="20, 10, 0, 5"/>
+            <Grid Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.8*"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <StackPanel Grid.Row="0">
+                    <Label Content="Name" HorizontalAlignment="Left" Margin="20, 10, 0, 5"/>
 
-                <TextBox HorizontalAlignment="Left" Margin="20, 0, 10, 0" MaxLength="13" Width="140"/>
+                <TextBox Text="{Binding Name}" HorizontalAlignment="Left" Margin="20, 0, 10, 0" MaxLength="13" Width="135"/>
 
-                <Label Content="Surename" HorizontalAlignment="Left" Margin="20, 10, 0, 5"/>
+                <Label Content="Surname" HorizontalAlignment="Left" Margin="20, 10, 0, 5"/>
 
-                <TextBox HorizontalAlignment="Left" Margin="20, 0, 10, 0" MaxLength="13" Width="140"/>
-
-                <Label Content="Sex" HorizontalAlignment="Left" Margin="20, 10, 0, 5"/>
-                <ListBox HorizontalAlignment="Left" Margin="20, 0">
+                    <TextBox Text="{Binding Surname}"  HorizontalAlignment="Left" Margin="20, 0, 10, 0" MaxLength="13" Width="135"/>
+                </StackPanel>
+                <Grid Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="1.2*"/>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Grid.Column="0">
+                    <Label Content="Sex" HorizontalAlignment="Left" Margin="15, 10, 0, 5"/>
+                        <ListBox SelectedValue="{Binding Sex}" HorizontalAlignment="Left" Margin="10, 0" >
                     <ListBoxItem>Woman</ListBoxItem>
                     <ListBoxItem>Man</ListBoxItem>
                 </ListBox>
-                <Label Content="Age" HorizontalAlignment="Left" Margin="20, 10, 0, 5"/>
-            </StackPanel>
+                    </StackPanel>
+                    <StackPanel Grid.Column="1">
+                        <Label Content="Date of birth" HorizontalAlignment="Left" Margin="0, 10, 0, 5"/>
+                        <DatePicker SelectedDate="{Binding DateOfBirth}" />
+                    </StackPanel>
+                </Grid>
+            </Grid>
             <StackPanel Grid.Column="1">
                 <Label Content="Username" HorizontalAlignment="Left" Margin="20, 10, 0, 5"/>
-                <TextBox HorizontalAlignment="Left" Margin="20, 0, 10, 0" MaxLength="13" Width="141"/>
+                <TextBox Text="{Binding Username}"  HorizontalAlignment="Left" Margin="20, 0, 10, 0" MaxLength="13" Width="135"/>
                 <Label Content="Password" HorizontalAlignment="Left" Margin="20, 10, 0, 5"/>
-                <TextBox HorizontalAlignment="Left" Margin="20, 0, 10, 0" MaxLength="13" Width="141"/>
-                <Button Content="Sign Up" HorizontalAlignment="Center" Margin="0,100,0,0" />
+                <TextBox Text="{Binding Password}"  HorizontalAlignment="Left" Margin="20, 0, 10, 0" MaxLength="13" Width="135"/>
+                <Label Content="Accound type" HorizontalAlignment="Left" Margin="20, 10, 0, 5"/>
+                <ListBox SelectedValue="{Binding AccoundType}" HorizontalAlignment="Left" Margin="20, 0">
+                    <ListBoxItem>Patient</ListBoxItem>
+                    <ListBoxItem>Doctor</ListBoxItem>
+                </ListBox>
+                <Button Content="Sign Up" HorizontalAlignment="Center" Margin="0,50,0,0" Command="{Binding Register, Mode=OneWay, Source={StaticResource viewModel}}" CommandParameter="{DynamicResource viewModel}"/>
             </StackPanel>
             <Grid Grid.Column="2">
                 <TextBlock Margin="20" TextWrapping="Wrap" TextAlignment="Justify" VerticalAlignment="Top">
-                    
-                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla volutpat lobortis nisl ac gravida. Vestibulum porta quam et elit eleifend, lobortis tempor purus ullamcorper. Praesent ultricies iaculis mi. Praesent pulvinar quis velit non tristique. Mauris a lacinia elit. Etiam eleifend metus suscipit, tincidunt justo at, placerat lacus. Nunc eu rutrum leo, nec euismod libero. Ut scelerisque felis id condimentum efficitur. Phasellus nisi justo, suscipit a felis eu, dictum efficitur diam. Sed nibh massa, gravida ac finibus congue, ullamcorper vitae mauris. 
+                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla volutpat lobortis nisl ac gravida. Vestibulum porta quam et elit eleifend, lobortis tempor purus ullamcorper. Praesent ultricies iaculis mi. Praesent pulvinar quis velit non tristique. Mauris a lacinia elit. Etiam eleifend metus suscipit, tincidunt justo at, placerat lacus. Nunc eu rutrum leo, nec euismod libero. Ut scelerisque felis id condimentum efficitur. Phasellus nisi justo, suscipit a felis eu, dictum efficitur diam. Sed nibh massa, gravida ac finibus congue, ullamcorper vitae mauris.
                 </TextBlock>
 
             </Grid>
