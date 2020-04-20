@@ -110,8 +110,8 @@ namespace ePsychologist.ViewModels
             }
         }
 
-        private string accoundType;
-        public string AccoundType
+        private char accoundType;
+        public char AccoundType
         {
             get { return accoundType; }
             set
