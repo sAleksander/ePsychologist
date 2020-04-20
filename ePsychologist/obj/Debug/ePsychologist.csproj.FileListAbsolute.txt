@@ -46,4 +46,3 @@ C:\Users\Lenovo\Desktop\_szkola\_projektIV\ePsychologist\obj\Debug\ePsychologist
 C:\Users\Lenovo\Desktop\_szkola\_projektIV\ePsychologist\obj\Debug\App.baml
 C:\Users\Lenovo\Desktop\_szkola\_projektIV\ePsychologist\obj\Debug\View\Register.g.cs
 C:\Users\Lenovo\Desktop\_szkola\_projektIV\ePsychologist\obj\Debug\View\Register.baml
-C:\Users\Lenovo\Desktop\_szkola\_projektIV\ePsychologist\obj\Debug\ePsychologist.csprojAssemblyReference.cache

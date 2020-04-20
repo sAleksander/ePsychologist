@@ -23,19 +23,15 @@ namespace ePsychologist.ViewModels.RegisterView
             if (vm != null)
             {
                 Connection con = new Connection();
-                char sex, acType;
-                if (vm.Sex == "Woman")
-                    sex = 'w';
-                else
-                    sex = 'm';
+                char acType;
                 if (vm.AccoundType == "Patient")
                     acType = 'P';
                 else
                     acType = 'D';
                 try
                 {
-                    if (vm.Name != "" || vm.Surname != "" || vm.Username != "" || vm.Password != "")
-                        con.Register(vm.Name, vm.Surname, sex, vm.DateOfBirth.ToString("yyyy-MM-dd"), vm.Username, vm.Password, acType);
+                    if (!(string.IsNullOrEmpty(vm.Name) || string.IsNullOrEmpty(vm.Surname) || string.IsNullOrEmpty(vm.Username) || string.IsNullOrEmpty(vm.Password)))
+                        con.Register(vm.Name, vm.Surname, vm.Sex, vm.DateOfBirth.ToString("yyyy-MM-dd"), vm.Username, vm.Password, acType);
                     else
                         throw new Exception("Invaild data");
                     vm.SuccessLb = "Success!";

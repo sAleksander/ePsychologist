@@ -11,6 +11,7 @@
 
     <Page.Resources>
         <vm:RegisterViewModel x:Key="viewModel"/>
+        <vm:StringToCharConverter x:Key="stringToCharConverter"/>
     </Page.Resources>
 
     <Grid DataContext="{StaticResource viewModel}">
@@ -51,7 +52,7 @@
                     </Grid.ColumnDefinitions>
                     <StackPanel Grid.Column="0">
                     <Label Content="Sex" HorizontalAlignment="Left" Margin="15, 10, 0, 5"/>
-                        <ListBox SelectedValue="{Binding Sex}" HorizontalAlignment="Left" Margin="10, 0" >
+                        <ListBox SelectedValue="{Binding Sex, Mode=TwoWay,Converter={StaticResource stringToCharConverter}}" HorizontalAlignment="Left" Margin="10, 0" >
                     <ListBoxItem>Woman</ListBoxItem>
                     <ListBoxItem>Man</ListBoxItem>
                 </ListBox>
@@ -68,7 +69,7 @@
                 <Label Content="Password" HorizontalAlignment="Left" Margin="20, 10, 0, 5"/>
                 <TextBox Text="{Binding Password}"  HorizontalAlignment="Left" Margin="20, 0, 10, 0" MaxLength="13" Width="135"/>
                 <Label Content="Accound type" HorizontalAlignment="Left" Margin="20, 10, 0, 5"/>
-                <ListBox SelectedValue="{Binding AccoundType}" HorizontalAlignment="Left" Margin="20, 0">
+                <ListBox SelectedValue="{Binding AccoundType, Converter={StaticResource stringToCharConverter}}" HorizontalAlignment="Left" Margin="20, 0">
                     <ListBoxItem>Patient</ListBoxItem>
                     <ListBoxItem>Doctor</ListBoxItem>
                 </ListBox>

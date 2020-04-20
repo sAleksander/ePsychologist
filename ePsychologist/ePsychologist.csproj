@@ -108,6 +108,7 @@
     <Compile Include="ViewModels\RegisterViewModel.cs" />
     <Compile Include="ViewModels\RegisterView\RegisterCommand.cs" />
     <Compile Include="ViewModels\RegisterView\GotoLoginCommand.cs" />
+    <Compile Include="ViewModels\StringToCharConverter.cs" />
     <Compile Include="View\homeDoctor.xaml.cs">
       <DependentUpon>homeDoctor.xaml</DependentUpon>
     </Compile>

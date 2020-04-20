@@ -1,12 +1,14 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Windows.Input;
 using ePsychologist.ViewModels.RegisterView;
 
 namespace ePsychologist.ViewModels
 {
+
     public class RegisterViewModel : BasicViewModel
     {
-        private string name = "";
+        private string name;
         public string Name
         {
             get { return name; }
@@ -22,7 +24,7 @@ namespace ePsychologist.ViewModels
             }
         }
 
-        private string surname = "";
+        private string surname;
         public string Surname
         {
             get { return surname; }
@@ -38,8 +40,8 @@ namespace ePsychologist.ViewModels
             }
         }
 
-        private string sex;
-        public string Sex
+        private char sex;
+        public char Sex
         {
             get { return sex; }
             set
@@ -76,7 +78,7 @@ namespace ePsychologist.ViewModels
             }
         }
 
-        private string username = "";
+        private string username;
         public string Username
         {
             get { return username; }
@@ -92,7 +94,7 @@ namespace ePsychologist.ViewModels
             }
         }
 
-        private string password = "";
+        private string password;
         public string Password
         {
             get { return password; }
