@@ -11,7 +11,7 @@ namespace ePsychologist.ViewModels.RegisterView
         public bool CanExecute(object parameter)
         {
             RegisterViewModel vm = (RegisterViewModel)parameter;
-            if (vm.ErrorLb == null)
+            if (vm.ErrorLb != "Invaild data")
                 return true;
             else
                 return false;
@@ -34,9 +34,9 @@ namespace ePsychologist.ViewModels.RegisterView
                 catch(Exception e)
                 {
                     if (e.Message == "Invaild data")
-                        vm.ErrorLb = "Invaild data";
+                        vm.ErrorLb = $"Invaild data {e}";
                     else
-                        vm.ErrorLb = "Connection failed";
+                        vm.ErrorLb = $"Connection failed {e}";
                 }
             }
         }

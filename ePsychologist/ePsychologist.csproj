@@ -94,6 +94,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Models\Connection.cs" />
+    <Compile Include="Models\Hash.cs" />
     <Compile Include="ViewModels\BasicViewModel.cs" />
     <Compile Include="ViewModels\HomeDoctorViewModel.cs" />
     <Compile Include="ViewModels\HomePatientViewModel.cs" />

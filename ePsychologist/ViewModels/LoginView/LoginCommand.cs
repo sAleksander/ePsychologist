@@ -26,7 +26,7 @@ namespace ePsychologist.ViewModels.LoginView
                     Connection connection = new Connection();
                     viewModel.Error = "";
                     char userType = connection.Login(viewModel.Username,viewModel.Password);
-                    if(userType == 'l')
+                    if(userType == 'D')
                         MainViewModel.Navigator.UpdateCurrentVMCommand.Execute(ViewType.HomeDoctor);
                     else
                         MainViewModel.Navigator.UpdateCurrentVMCommand.Execute(ViewType.HomePatient);
