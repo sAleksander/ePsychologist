@@ -54,16 +54,28 @@ namespace ePsychologist.Models
         public void Register(string name, string surname, char sex, string dateOfBirth, string username, string password, char accoundType)
         {
             var hashedPassword = Hash.GenerateSaltedHash(password, username);
-            
-            string query = $"Insert into users(name, surname, username, password, type, sex, date_of_birth) values('{name}', '{surname}', '{username}', '{hashedPassword}' ,'{accoundType}', '{sex}', '{dateOfBirth}'); ";
-            MySqlCommand command = new MySqlCommand(query, cnn);
+
+            MySqlCommand command1 = new MySqlCommand($"Insert into users(username, password, type) values('{username}', '{hashedPassword}' ,'{accoundType}'); ", cnn);
             try
             {
-                command.ExecuteNonQuery();
+                command1.ExecuteNonQuery();
+                using (MySqlCommand command2 = new MySqlCommand(
+                $"SELECT id_u, users.type FROM users WHERE username = '{username}' AND password = '{hashedPassword}';", cnn))
+                {
+                    using (MySqlDataReader reader = command2.ExecuteReader())
+                    {
+                        reader.Read();
+                        if (reader.HasRows)
+                            userID = Convert.ToInt32(reader[0].ToString());
+                    }
+
+                }
+                MySqlCommand command3 = new MySqlCommand($"Insert into personals(id_u, name, surname, sex, date_of_birth) values('{userID}','{name}', '{surname}',  '{sex}', '{dateOfBirth}'); ", cnn);
+                command3.ExecuteNonQuery();
             }
             catch
             {
-                throw new Exception("Invaild data"); 
+                throw new Exception("Invaild data");
             }
         }
 
