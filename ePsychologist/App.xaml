@@ -13,9 +13,13 @@
         <DataTemplate DataType="{x:Type viewModels:HomeDoctorViewModel}">
             <view:homeDoctor/>
         </DataTemplate>
-        
+
         <DataTemplate DataType="{x:Type viewModels:HomePatientViewModel}">
             <view:homePatient/>
+        </DataTemplate>
+        
+        <DataTemplate DataType="{x:Type viewModels:RegisterViewModel}">
+            <view:Register/>
         </DataTemplate>
 
     </Application.Resources>

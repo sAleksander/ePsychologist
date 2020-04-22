@@ -20,9 +20,9 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0">
-            <Label Foreground="Red" Content="{Binding Error, Mode=TwoWay}" MinHeight="30" />
-            <Button x:Name="SignUpBt" Margin="0,0,30,0" HorizontalAlignment="Right" MinHeight="30" MinWidth="60">Sign up</Button>
-            <Image MaxWidth="250" HorizontalAlignment="Center" VerticalAlignment="Center" Source="../Content/logo.png"/>
+            <Label Foreground="Red" MinHeight="30" Content="{Binding Error, Source={StaticResource viewModel}}" />
+            <Button x:Name="SignUpBt" Content="Sign up" Margin="0,0,30,0" HorizontalAlignment="Right" MinHeight="30" MinWidth="60" Command="{Binding Gotoregister, Source={StaticResource viewModel}}"/>
+            <Image MaxWidth="350" HorizontalAlignment="Center" VerticalAlignment="Center" Source="../Content/logo.png"/>
         </StackPanel>
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>

@@ -26,14 +26,14 @@ namespace ePsychologist.ViewModels.LoginView
                     Connection connection = new Connection();
                     viewModel.Error = "";
                     char userType = connection.Login(viewModel.Username,viewModel.Password);
-                    if(userType == 'l')
+                    if(userType == 'D')
                         MainViewModel.Navigator.UpdateCurrentVMCommand.Execute(ViewType.HomeDoctor);
                     else
                         MainViewModel.Navigator.UpdateCurrentVMCommand.Execute(ViewType.HomePatient);
                 }
                 catch(Exception e)
                 {
-                    if(e.Message== "Wrong username or password")
+                    if(e.Message == "Wrong username or password")
                         viewModel.Error = "Wrong username or password";
                     else
                         viewModel.Error = "Connection failed";

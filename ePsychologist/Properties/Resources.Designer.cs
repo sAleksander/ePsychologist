@@ -23,18 +23,16 @@ namespace ePsychologist.Properties
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Resources
-    {
-
+    internal class Resources {
+        
         private static global::System.Resources.ResourceManager resourceMan;
-
+        
         private static global::System.Globalization.CultureInfo resourceCulture;
-
+        
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal Resources()
-        {
+        internal Resources() {
         }
-
+        
         /// <summary>
         /// Zwraca buforowane wystąpienie ResourceManager używane przez tę klasę.
         /// </summary>
@@ -51,27 +49,21 @@ namespace ePsychologist.Properties
                 return resourceMan;
             }
         }
-
+        
         /// <summary>
         ///   Przesłania właściwość CurrentUICulture bieżącego wątku dla wszystkich
         ///   przypadków przeszukiwania zasobów za pomocą tej klasy zasobów wymagającej zdefiniowania typu.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture
-        {
-            get
-            {
+        internal static global::System.Globalization.CultureInfo Culture {
+            get {
                 return resourceCulture;
             }
-            set
-            {
+            set {
                 resourceCulture = value;
             }
         }
 
-        /// <summary>
-        /// Wyszukuje zlokalizowany ciąg podobny do ciągu schizofrenia.
-        /// </summary>
         internal static string DB
         {
             get
@@ -79,10 +71,7 @@ namespace ePsychologist.Properties
                 return ResourceManager.GetString("DB", resourceCulture);
             }
         }
-
-        /// <summary>
-        /// Wyszukuje zlokalizowany ciąg podobny do ciągu 83.230.14.31.
-        /// </summary>
+        
         internal static string DB_HOST
         {
             get
@@ -91,9 +80,6 @@ namespace ePsychologist.Properties
             }
         }
 
-        /// <summary>
-        /// Wyszukuje zlokalizowany ciąg podobny do ciągu heheszki.
-        /// </summary>
         internal static string DB_PASS
         {
             get
@@ -102,9 +88,7 @@ namespace ePsychologist.Properties
             }
         }
 
-        /// <summary>
-        /// Wyszukuje zlokalizowany ciąg podobny do ciągu 12345.
-        /// </summary>
+        
         internal static string DB_PORT
         {
             get
@@ -112,10 +96,8 @@ namespace ePsychologist.Properties
                 return ResourceManager.GetString("DB_PORT", resourceCulture);
             }
         }
-
-        /// <summary>
-        /// Wyszukuje zlokalizowany ciąg podobny do ciągu user.
-        /// </summary>
+            
+        
         internal static string DB_USER
         {
             get

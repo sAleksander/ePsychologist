@@ -1,15 +1,12 @@
 ﻿using System.Security;
 using System.Windows.Input;
 using ePsychologist.ViewModels.LoginView;
-using ePsychologist.ViewModels.MainView;
 
 namespace ePsychologist.ViewModels
 {
     public class LoginViewModel : BasicViewModel
     {
         public LoginViewModel() { }
-
-        public INavigator Navigator { get; set; } = new Navigator();
 
         private string username;
         public string Username
@@ -72,6 +69,16 @@ namespace ePsychologist.ViewModels
             {
                 if (loginCommand == null) loginCommand = new LoginCommand();
                 return loginCommand;
+            }
+        }
+
+        private ICommand gotoRegisterCommand;
+        public ICommand Gotoregister
+        {
+            get
+            {
+                if (gotoRegisterCommand == null) gotoRegisterCommand = new GotoRegisterCommand();
+                return gotoRegisterCommand;
             }
         }
     }

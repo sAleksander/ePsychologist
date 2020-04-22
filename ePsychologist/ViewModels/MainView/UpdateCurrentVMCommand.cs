@@ -33,7 +33,7 @@ namespace ePsychologist.ViewModels.MainView
                         _navigator.CurrentVM =new LoginViewModel();
                         break;
                     case ViewType.Register:
-                        _navigator.CurrentVM = new LoginViewModel();
+                        _navigator.CurrentVM = new RegisterViewModel();
                         break;
                     case ViewType.HomePatient:
                         _navigator.CurrentVM = new HomePatientViewModel();
