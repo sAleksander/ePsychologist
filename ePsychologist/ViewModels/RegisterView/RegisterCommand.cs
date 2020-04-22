@@ -34,9 +34,9 @@ namespace ePsychologist.ViewModels.RegisterView
                 catch(Exception e)
                 {
                     if (e.Message == "Invaild data")
-                        vm.ErrorLb = $"Invaild data {e}";
+                        vm.ErrorLb = "Invaild data";
                     else
-                        vm.ErrorLb = $"Connection failed {e}";
+                        vm.ErrorLb = "Connection failed";
                 }
             }
         }
