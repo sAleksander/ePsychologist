@@ -4,24 +4,67 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:ePsychologist.View"
+      xmlns:vm="clr-namespace:ePsychologist.ViewModels"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="homePatient"
-      Background="white"
+      Background="LightSlateGray"
       >
 
-    <Grid>
+    <Page.Resources>
+        <vm:HomePatientViewModel x:Key="homePatientViewModel" />
+    </Page.Resources>
+    <Grid DataContext="{StaticResource homePatientViewModel}">
         <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
+            <RowDefinition Height="0.13*"/>
+            <RowDefinition Height="2*"/>
         </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
+        <Label x:Name="homePatientLabel" Grid.Row="0" Content="MODUŁ PACJENTA" FontSize="17" HorizontalContentAlignment="Center" Background="SlateGray" BorderThickness="0"/>
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Column="1">
+                <Label  Content="Informacje o chorobie" FontSize="17" Margin="0,10,0,10" Background="SlateGray" BorderThickness="0" HorizontalContentAlignment="Center"/>
 
-        <Label Content="Patient" Grid.Column="1" Grid.ColumnSpan="1" Grid.Row="1" Grid.RowSpan="1" Background="Red"/>
+                <Label Content="{Binding SicknessInfo}" FontSize="14" Background="LightGray" Height="115"/>
+                <Label Content="Edytuj dane osobowe" FontSize="17" Margin="0,10,0,10" Background="SlateGray" BorderThickness="0" HorizontalContentAlignment="Center"/>
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="3*"/>
+                        <ColumnDefinition Width="8*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Label Grid.Row="0" Grid.Column="0" Content="Imie" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="15"/>
+                    <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding PatientName}" Background="LightGray" FontSize="15" VerticalAlignment="Center"/>
+                    <Label Grid.Row="1" Grid.Column="0" Content="Naziwsko" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="15"/>
+                    <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding PatientSurname}" Background="LightGray" FontSize="15" VerticalAlignment="Center"/>
+                    <Label Grid.Row="2" Grid.Column="0" Content="Płeć" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="15"/>
+                    <Grid Grid.Row="2" Grid.Column="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="1*"/>
+                        </Grid.ColumnDefinitions>
+                        <RadioButton Grid.Column="0" IsChecked="{Binding PatientGender}" Content="Kobieta" FontSize="15" VerticalAlignment="Center"/>
+                        <RadioButton Grid.Column="1" IsChecked="{Binding PatientGender}" Content="Mężczyzna" FontSize="15" VerticalAlignment="Center"/>
+                    </Grid>
+                    <Label Grid.Row="3" Grid.Column="0" FontSize="14" Content="Data urodzenia" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <DatePicker Grid.Row="3" Grid.Column="1" DataContext="{Binding PatientBirthday}"  Background="SlateGray" BorderBrush="SlateGray" OpacityMask="SlateGray" VerticalAlignment="Center"/>
+                </Grid>
+                <Button Content="Zatwierdź" Command="{Binding ConfirmChanges}" FontSize="17" Background="SlateGray" BorderThickness="0" Margin="200,20,40,0"/>
+                <Button Command="{Binding LogOut}" Content="Wyloguj się" FontSize="17" Margin="0,10,0,10" Background="SlateGray" BorderThickness="0"/>
+            </StackPanel>
+        </Grid>
+
+
+
     </Grid>
 </Page>
