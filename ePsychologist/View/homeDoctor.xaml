@@ -69,8 +69,6 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
-
-
         <Label Content="Imie" Grid.Column="0" Grid.ColumnSpan="8" Grid.Row="0" Grid.RowSpan="1" Background="#512bd4" Foreground="white" FontSize="11" Margin="1"/>
         <TextBox Grid.Column="0" Grid.ColumnSpan="8" Grid.Row="1" Grid.RowSpan="1" BorderBrush="#3498db" Background="#171717" Foreground="white" FontSize="11" Margin="1"/>
 
@@ -83,16 +81,19 @@
         <ListBox Grid.Column="0" Grid.ColumnSpan="8" Grid.Row="5" Grid.RowSpan="14" Background="#32145a" Foreground="white" FontSize="12" Margin="1"/>
 
         <Frame Grid.Column="8" Grid.ColumnSpan="23" Grid.Row="0" Grid.RowSpan="19" Background="#002050" Margin="1"/>
-        <Label  Content="{Binding PatientName}"  Grid.Column="24" Grid.ColumnSpan="7" Grid.Row="0" Grid.RowSpan="1" Background="#0078d7" Foreground="white" FontSize="11" Margin="1"/>
-        <Label Content="{Binding PatientSurname}" Grid.Column="24" Grid.ColumnSpan="7" Grid.Row="1" Grid.RowSpan="1" Background="#243a5e" Foreground="white" FontSize="11" Margin="1"/>
-        <Label Content="{Binding PatientId}" Grid.Column="24" Grid.ColumnSpan="7" Grid.Row="2" Grid.RowSpan="1" Background="#0078d7" Foreground="white" FontSize="11" Margin="1"/>
+        <Label  Content="Imie"  Grid.Column="8" Grid.ColumnSpan="3" Grid.Row="0" Grid.RowSpan="2" Background="#0078d7" Foreground="white" FontSize="11" Margin="1"/>
+        <Label  Content="{Binding PatientName}"  Grid.Column="11" Grid.ColumnSpan="20" Grid.Row="0" Grid.RowSpan="2" Background="#0078d7" Foreground="white" FontSize="11" Margin="1"/>
+        <Label  Content="Nazwisko"  Grid.Column="8" Grid.ColumnSpan="3" Grid.Row="2" Grid.RowSpan="2" Background="#0078d7" Foreground="white" FontSize="11" Margin="1"/>
+        <Label Content="{Binding PatientSurname}" Grid.Column="11" Grid.ColumnSpan="20" Grid.Row="2" Grid.RowSpan="2" Background="#243a5e" Foreground="white" FontSize="11" Margin="1"/>
+        <Label  Content="Płeć"  Grid.Column="8" Grid.ColumnSpan="3" Grid.Row="4" Grid.RowSpan="2" Background="#0078d7" Foreground="white" FontSize="11" Margin="1"/>
+        <Label  Content="{Binding PatientSex}"  Grid.Column="11" Grid.ColumnSpan="20" Grid.Row="4" Grid.RowSpan="2" Background="#0078d7" Foreground="white" FontSize="11" Margin="1"/>
+        <Label  Content="Data urodzin"  Grid.Column="8" Grid.ColumnSpan="3" Grid.Row="6" Grid.RowSpan="2" Background="#0078d7" Foreground="white" FontSize="11" Margin="1"/>
+        <Label  Content="{Binding PatientBirth}"  Grid.Column="11" Grid.ColumnSpan="20" Grid.Row="6" Grid.RowSpan="2" Background="#243a5e" Foreground="white" FontSize="11" Margin="1"/>
+        <Label  Content="Czy chory"  Grid.Column="8" Grid.ColumnSpan="3" Grid.Row="8" Grid.RowSpan="2" Background="#0078d7" Foreground="white" FontSize="11" Margin="1"/>
+        <Label Content="{Binding PatientIll}" Grid.Column="11" Grid.ColumnSpan="20" Grid.Row="8" Grid.RowSpan="2" Background="#0078d7" Foreground="white" FontSize="11" Margin="1"/>
+        <Label  Content="Id"  Grid.Column="8" Grid.ColumnSpan="3" Grid.Row="10" Grid.RowSpan="2" Background="#0078d7" Foreground="white" FontSize="11" Margin="1"/>
+        <Label Content="{Binding PatientId}" Grid.Column="11" Grid.ColumnSpan="20" Grid.Row="10" Grid.RowSpan="2" Background="#243a5e" Foreground="white" FontSize="11" Margin="1"/>
 
-        <Label Content="Typ Choroby" Grid.Column="8" Grid.ColumnSpan="4" Grid.Row="0" Grid.RowSpan="3" Background="#0078d7" Foreground="white" FontSize="15" Margin="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
-        <Label Content="{Binding Diagnose}" Grid.Column="12" Grid.ColumnSpan="11" Grid.Row="0" Grid.RowSpan="3" BorderBrush="#0078d7" BorderThickness="2" Foreground="white" FontSize="17" Margin="1"/>
-
-        <Label Content="Opis choroby" Grid.Column="8" Grid.ColumnSpan="18" Grid.Row="3" Grid.RowSpan="2" Background="#243a5e" Foreground="white" FontSize="17" Margin="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-        <Button Command="{Binding ReAnalize}" Content="Ponowna analiza" Grid.Column="26" Grid.ColumnSpan="5" Grid.Row="3" Grid.RowSpan="2" Background="#d83b01" Foreground="white" FontSize="15" Margin="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
-
-        <TextBox Text="{Binding PatientHistory}" Grid.Column="8" Grid.ColumnSpan="23" Grid.Row="5" Grid.RowSpan="14"  Background="#737373" Foreground="white" FontSize="13" Margin="3"/>
+        <Button Command="{Binding ReAnalize}" Content="Ponowna analiza" Grid.Column="8" Grid.ColumnSpan="23" Grid.Row="17" Grid.RowSpan="2" Background="#d83b01" Foreground="white" FontSize="15" Margin="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
     </Grid>
 </Page>
