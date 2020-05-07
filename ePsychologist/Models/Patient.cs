@@ -23,5 +23,22 @@ namespace ePsychologist.Models
             this.dateofbirth = dateofbirth;
             this.sex = sex;
         }
+
+        public string[] GetDisplayData()
+        {
+            string[] conversion = new string[5];
+            conversion[0] = name;
+            conversion[1] = surname;
+            conversion[2] = dateofbirth;
+            conversion[3] = id.ToString();
+            conversion[4] = sex.ToString();
+
+            return conversion;
+        }
+
+        public override string ToString()
+        {
+            return $"{id}, {name}, {surname}";
+        }
     }
 }

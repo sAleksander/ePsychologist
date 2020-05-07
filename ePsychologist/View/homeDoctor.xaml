@@ -94,6 +94,8 @@
         <Label  Content="Id"  Grid.Column="8" Grid.ColumnSpan="3" Grid.Row="10" Grid.RowSpan="2" Background="#0078d7" Foreground="white" FontSize="11" Margin="1"/>
         <Label Content="{Binding PatientId}" Grid.Column="11" Grid.ColumnSpan="20" Grid.Row="10" Grid.RowSpan="2" Background="#243a5e" Foreground="white" FontSize="11" Margin="1"/>
 
-        <Button Command="{Binding ReAnalize}" Content="Ponowna analiza" Grid.Column="8" Grid.ColumnSpan="23" Grid.Row="17" Grid.RowSpan="2" Background="#d83b01" Foreground="white" FontSize="15" Margin="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+        <Button Command="{Binding ReAnalize}" Content="Ponowna analiza" Grid.Column="8" Grid.ColumnSpan="23" Grid.Row="14" Grid.RowSpan="2" Background="#d83b01" Foreground="white" FontSize="15" Margin="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+
+        <Button Command="{Binding LogOut}" Content="Wyloguj" Grid.Column="8" Grid.ColumnSpan="23" Grid.Row="17" Grid.RowSpan="2" Background="Red" Foreground="white" FontSize="15" Margin="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
     </Grid>
 </Page>

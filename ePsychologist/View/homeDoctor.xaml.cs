@@ -12,9 +12,6 @@ namespace ePsychologist.View
         public homeDoctor()
         {
             InitializeComponent();
-            Connection cn = Connection.DbConnection;
-            int test = cn.GetUserID();
-            Debug.WriteLine("id: " + test);
         }
     }
 }

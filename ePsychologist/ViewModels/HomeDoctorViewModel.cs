@@ -1,5 +1,8 @@
-﻿using System;
+﻿using ePsychologist.Models;
+using ePsychologist.ViewModels.MainView;
+using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,6 +12,11 @@ namespace ePsychologist.ViewModels
 {
     class HomeDoctorViewModel : BasicViewModel
     {
+        private modelDoctor model = new modelDoctor();
+        public HomeDoctorViewModel()
+        {
+            Debug.WriteLine("viewModel");
+        }
 
         private string _patientName = "Name not found!";
         public string PatientName
@@ -160,6 +168,28 @@ namespace ePsychologist.ViewModels
                         );
                 }
                 return _reAnalize;
+            }
+        }
+
+        private ICommand _logOut = null;
+        public ICommand LogOut
+        {
+            get
+            {
+                if(_logOut == null)
+                {
+                    _logOut = new RelayCommand(
+                        x =>
+                        {
+                            MainViewModel.Navigator.UpdateCurrentVMCommand.Execute(ViewType.Login);
+                        },
+                        x =>
+                        {
+                            return true;
+                        }
+                        );
+                }
+                return _logOut;
             }
         }
 
