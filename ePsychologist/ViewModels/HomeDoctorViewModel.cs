@@ -9,19 +9,7 @@ namespace ePsychologist.ViewModels
 {
     class HomeDoctorViewModel : BasicViewModel
     {
-        private string _diagnose = "Diagnose not found!";
-        public string Diagnose
-        {
-            get
-            {
-                return _diagnose;
-            }
-            set
-            {
-                _diagnose = value;
-                OnPropertyChange(nameof(Diagnose));
-            }
-        }
+
         private string _patientName = "Name not found!";
         public string PatientName
         {
@@ -48,6 +36,46 @@ namespace ePsychologist.ViewModels
                 OnPropertyChange(nameof(PatientName));
             }
         }
+        private string _patientSex = "Sex not recognized!";
+        public string PatientSex
+        {
+            get
+            {
+                return _patientSex;
+            }
+            set
+            {
+                _patientSex = value;
+                OnPropertyChange(nameof(PatientSex));
+            }
+        }
+        private string _patientBirth = "Birth date not found!";
+        public string PatientBirth
+        {
+            get
+            {
+                return _patientBirth;
+            }
+            set
+            {
+                _patientBirth = value;
+                OnPropertyChange(nameof(PatientBirth));
+            }
+        }
+        private string _patientIll = "Diagnose not found!";
+        public string PatientIll
+        {
+            get
+            {
+                return _patientIll;
+            }
+            set
+            {
+                _patientIll = value;
+                OnPropertyChange(nameof(PatientIll));
+            }
+        }
+
         private string _patientId = "Id not found!";
         public string PatientId
         {
@@ -61,20 +89,6 @@ namespace ePsychologist.ViewModels
                 OnPropertyChange(nameof(PatientId));
             }
         }
-        private string _patientHistory = "History not found!";
-        public string PatientHistory
-        {
-            get
-            {
-                return _patientHistory;
-            }
-            set
-            {
-                _patientHistory = value;
-                OnPropertyChange(nameof(PatientHistory));
-            }
-        }
-
 
         private string _nameSearch = "";
         public string NameSearch

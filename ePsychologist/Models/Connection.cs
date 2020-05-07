@@ -34,7 +34,7 @@ namespace ePsychologist.Models
 
             string query = $"SELECT id_u, users.type FROM users WHERE username = '{username}' AND password = '{hashedPassword}';";
             using (MySqlCommand command = new MySqlCommand(
-                query,cnn))
+                query, cnn))
             {
                 using (MySqlDataReader reader = command.ExecuteReader())
                 {
