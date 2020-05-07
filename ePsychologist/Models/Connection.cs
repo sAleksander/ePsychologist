@@ -6,13 +6,13 @@ namespace ePsychologist.Models
 {
     public class Connection
     {
-        private int userID;
+        private int userID = 404;
         // 'D' lekarz, 'P' pacjent
         private char userType;
 
         private MySqlConnection cnn;
         private static Connection dbConnection;
-        public Connection()
+        private Connection()
         {
             String connetionString = $"host={ePsychologist.Properties.Resources.DB_HOST};port={ePsychologist.Properties.Resources.DB_PORT};user id={ePsychologist.Properties.Resources.DB_USER};password={ePsychologist.Properties.Resources.DB_PASS};database={ePsychologist.Properties.Resources.DB};";
             cnn = new MySqlConnection(@connetionString);
@@ -26,6 +26,11 @@ namespace ePsychologist.Models
                     dbConnection = new Connection();
                 return dbConnection;
             }
+        }
+
+        public int GetUserID()
+        {
+            return userID;
         }
 
         public char Login(string username, string password)

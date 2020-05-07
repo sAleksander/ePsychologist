@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Windows.Input;
 using ePsychologist.Models;
 using ePsychologist.ViewModels.MainView;
@@ -23,13 +24,16 @@ namespace ePsychologist.ViewModels.LoginView
                 string password = viewModel.Password;
                 try
                 {
-                    Connection connection = new Connection();
+                    Connection connection = Connection.DbConnection;
                     viewModel.Error = "";
                     char userType = connection.Login(viewModel.Username,viewModel.Password);
                     if(userType == 'D')
                         MainViewModel.Navigator.UpdateCurrentVMCommand.Execute(ViewType.HomeDoctor);
                     else
                         MainViewModel.Navigator.UpdateCurrentVMCommand.Execute(ViewType.HomePatient);
+
+                    int test = connection.GetUserID();
+                    Debug.WriteLine(test);
                 }
                 catch(Exception e)
                 {

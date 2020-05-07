@@ -1,4 +1,6 @@
-﻿using System.Windows.Controls;
+﻿using ePsychologist.Models;
+using System.Diagnostics;
+using System.Windows.Controls;
 
 namespace ePsychologist.View
 {
@@ -10,6 +12,9 @@ namespace ePsychologist.View
         public homeDoctor()
         {
             InitializeComponent();
+            Connection cn = Connection.DbConnection;
+            int test = cn.GetUserID();
+            Debug.WriteLine("id: " + test);
         }
     }
 }
