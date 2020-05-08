@@ -12,10 +12,10 @@ namespace ePsychologist.ViewModels
 {
     class HomeDoctorViewModel : BasicViewModel
     {
-        private modelDoctor model = new modelDoctor();
+        private modelDoctor MODEL;
         public HomeDoctorViewModel()
         {
-            Debug.WriteLine("viewModel");
+            MODEL = new modelDoctor();
         }
 
         private string _patientName = "Name not found!";

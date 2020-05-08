@@ -11,9 +11,11 @@ namespace ePsychologist.Models
     {
         #region fields
         private List<Patient> patients = new List<Patient>();
+        Connection DATABASE;
         public modelDoctor()
         {
-            Debug.WriteLine("Model");
+            DATABASE = Connection.DbConnection;
+            DATABASE.getPatients();
         }
         #endregion
     }

@@ -12,10 +12,11 @@ namespace ePsychologist.Models
         private string name;
         private string surname;
         private string dateofbirth;
-        private int id;
-        private char sex;
+        private string id;
+        private string sex;
+        private string diagnose;
         #endregion
-        public Patient(int id, string name, string surname,string dateofbirth, char sex)
+        public Patient(string id, string name, string surname,string dateofbirth, string sex)
         {
             this.id = id;
             this.name = name;
@@ -24,14 +25,23 @@ namespace ePsychologist.Models
             this.sex = sex;
         }
 
+        public string Diagnose
+        {
+            set
+            {
+                diagnose = value;
+            }
+        }
+
+
         public string[] GetDisplayData()
         {
             string[] conversion = new string[5];
             conversion[0] = name;
             conversion[1] = surname;
             conversion[2] = dateofbirth;
-            conversion[3] = id.ToString();
-            conversion[4] = sex.ToString();
+            conversion[3] = id;
+            conversion[4] = sex;
 
             return conversion;
         }

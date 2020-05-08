@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Text;
 using MySql.Data.MySqlClient;
 
@@ -31,6 +32,47 @@ namespace ePsychologist.Models
         public int GetUserID()
         {
             return userID;
+        }
+
+        public string[][] getPatients()
+        {
+            string query = $"SELECT id_u, Name, Surname, Date_of_birth, Sex FROM personals;";
+            using (MySqlCommand command = new MySqlCommand(
+                query, cnn))
+            {
+                int amount = 0;
+                using (MySqlDataReader reader = command.ExecuteReader())
+                {
+                    if (reader.HasRows)
+                    {
+                        while (reader.Read())
+                        {
+                            amount++;
+                        }
+                    }
+                }
+                using (MySqlDataReader reader = command.ExecuteReader())
+                {
+                    int j = 0;
+                    if (reader.HasRows)
+                    {
+                        string[][] patienBase = new string[amount][];
+                        while (reader.Read())
+                        {
+                            string[] newRow = new string[5];
+                            for (int i = 0; i < 5; i++)
+                            {
+                                newRow[i] = reader[i].ToString();
+                            }
+                            patienBase[j] = newRow;
+                            j++;
+                        }
+                        return patienBase;
+                    }
+                    else
+                        throw new Exception("No data found!");
+                }
+            }
         }
 
         public char Login(string username, string password)

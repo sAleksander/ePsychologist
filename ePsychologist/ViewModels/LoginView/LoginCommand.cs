@@ -31,9 +31,6 @@ namespace ePsychologist.ViewModels.LoginView
                         MainViewModel.Navigator.UpdateCurrentVMCommand.Execute(ViewType.HomeDoctor);
                     else
                         MainViewModel.Navigator.UpdateCurrentVMCommand.Execute(ViewType.HomePatient);
-
-                    int test = connection.GetUserID();
-                    Debug.WriteLine(test);
                 }
                 catch(Exception e)
                 {
