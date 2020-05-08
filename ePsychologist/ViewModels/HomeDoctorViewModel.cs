@@ -16,6 +16,26 @@ namespace ePsychologist.ViewModels
         public HomeDoctorViewModel()
         {
             MODEL = new modelDoctor();
+            Refresh();
+        }
+
+        private void Refresh()
+        {
+            PatientList = MODEL.GetPatients();
+        }
+
+        private string[] _patientList;
+        public string[] PatientList
+        {
+            get
+            {
+                return _patientList;
+            }
+            set
+            {
+                _patientList = value;
+                OnPropertyChange(nameof(PatientList));
+            }
         }
 
         private string _patientName = "Name not found!";
@@ -41,7 +61,7 @@ namespace ePsychologist.ViewModels
             set
             {
                 _patientSurname = value;
-                OnPropertyChange(nameof(PatientName));
+                OnPropertyChange(nameof(PatientSurname));
             }
         }
         private string _patientSex = "Sex not recognized!";
@@ -126,6 +146,51 @@ namespace ePsychologist.ViewModels
             }
         }
 
+        private int _index = -1;
+        public int Index
+        {
+            get
+            {
+                return _index;
+            }
+            set
+            {
+                _index = value;
+                OnPropertyChange(nameof(Index));
+            }
+        }
+
+        private ICommand _getPatientInfo;
+        public ICommand GetPatientInfo
+        {
+            get
+            {
+                if (_getPatientInfo == null)
+                {
+                    _getPatientInfo = new RelayCommand(
+                        x =>
+                        {
+                            if (Index != -1)
+                            {
+                                string[] temp = MODEL.GetPatientInfo(Index);
+                                PatientName = temp[0];
+                                PatientSurname = temp[1];
+                                PatientBirth = temp[2];
+                                PatientId = temp[3];
+                                PatientSex = temp[4];
+
+                            }
+                        },
+                        x =>
+                        {
+                            return true;
+                        }
+                        );
+
+                }
+                return _getPatientInfo;
+            }
+        }
 
         private ICommand _search = null;
         public ICommand Search
@@ -176,7 +241,7 @@ namespace ePsychologist.ViewModels
         {
             get
             {
-                if(_logOut == null)
+                if (_logOut == null)
                 {
                     _logOut = new RelayCommand(
                         x =>
