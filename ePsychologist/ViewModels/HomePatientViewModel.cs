@@ -8,13 +8,28 @@ namespace ePsychologist.ViewModels
 {
     using ePsychologist.ViewModels.MainView;
     using Models;
+    using System.ComponentModel;
     using System.Windows.Controls;
     using System.Windows.Input;
 
     class HomePatientViewModel : BasicViewModel
     {
+        private ModelPatient model;
+        public HomePatientViewModel()
+        {
+            model = new ModelPatient();
+            refresh();
+        }
 
-        private string _patientName = null;
+        private void refresh()
+        {
+            PatientName = model.getName();
+            PatientSurname = model.getSurname();
+            PatientGender = model.getSex();
+            PatientBirthday = Convert.ToDateTime(model.getDateOfBirth());
+        }
+
+        private string _patientName;
         public string PatientName
         {
             get { return _patientName; }
@@ -25,7 +40,7 @@ namespace ePsychologist.ViewModels
             }
         }
 
-        private string _patientSurname = null;
+        private string _patientSurname;
         public string PatientSurname
         {
             get { return _patientSurname; }

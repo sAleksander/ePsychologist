@@ -48,16 +48,10 @@
                     <Label Grid.Row="1" Grid.Column="0" Content="Naziwsko" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="15"/>
                     <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding PatientSurname}" Background="LightGray" FontSize="15" VerticalAlignment="Center"/>
                     <Label Grid.Row="2" Grid.Column="0" Content="Płeć" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="15"/>
-                    <Grid Grid.Row="2" Grid.Column="1">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="1*"/>
-                            <ColumnDefinition Width="1*"/>
-                        </Grid.ColumnDefinitions>
-                        <RadioButton Grid.Column="0" IsChecked="{Binding PatientGender}" Content="Kobieta" FontSize="15" VerticalAlignment="Center"/>
-                        <RadioButton Grid.Column="1" IsChecked="{Binding PatientGender}" Content="Mężczyzna" FontSize="15" VerticalAlignment="Center"/>
-                    </Grid>
+                    <TextBox Grid.Row="2" Grid.Column="1" Background="LightGray" VerticalAlignment="Center" FontSize="15" Text="{Binding PatientGender}"/>
+                    
                     <Label Grid.Row="3" Grid.Column="0" FontSize="14" Content="Data urodzenia" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                    <DatePicker Grid.Row="3" Grid.Column="1" DataContext="{Binding PatientBirthday}"  Background="SlateGray" BorderBrush="SlateGray" OpacityMask="SlateGray" VerticalAlignment="Center"/>
+                    <DatePicker Grid.Row="3" Grid.Column="1" SelectedDate="{Binding PatientBirthday}" Background="SlateGray" BorderBrush="SlateGray" OpacityMask="SlateGray" VerticalAlignment="Center"/>
                 </Grid>
                 <Button Content="Zatwierdź" Command="{Binding ConfirmChanges}" FontSize="17" Background="SlateGray" BorderThickness="0" Margin="200,20,40,0"/>
                 <Button Command="{Binding LogOut}" Content="Wyloguj się" FontSize="17" Margin="0,10,0,10" Background="SlateGray" BorderThickness="0"/>

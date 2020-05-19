@@ -96,6 +96,7 @@
     <Compile Include="Models\Connection.cs" />
     <Compile Include="Models\Hash.cs" />
     <Compile Include="Models\modelDoctor.cs" />
+    <Compile Include="Models\ModelPatient.cs" />
     <Compile Include="Models\Patient.cs" />
     <Compile Include="ViewModels\BasicViewModel.cs" />
     <Compile Include="ViewModels\HomeDoctorViewModel.cs" />

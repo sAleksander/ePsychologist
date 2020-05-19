@@ -33,6 +33,24 @@ namespace ePsychologist.Models
         {
             return userID;
         }
+        public string [] getOnePatient(int userId)
+        {
+            string query = $"SELECT Name, Surname, Date_of_birth, Sex FROM personals WHERE id_u = {userId};";
+            using (MySqlCommand command = new MySqlCommand(query, cnn))
+            {
+                using(MySqlDataReader reader=command.ExecuteReader())
+                {
+                    reader.Read();
+                        string[] patientData = new string[4];
+                        for (int i = 0; i < 4; i++)
+                        {
+                            patientData[i] = reader[i].ToString();
+                        }
+                        return patientData;
+
+                }
+            }
+        }
 
         public string[][] getPatients()
         {
