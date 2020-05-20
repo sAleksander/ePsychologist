@@ -21,7 +21,7 @@ namespace ePsychologist.ViewModels
 
         private void Refresh()
         {
-            PatientList = MODEL.GetPatients();
+            PatientList = MODEL.GetPatients("");
         }
 
         private string[] _patientList;
@@ -132,20 +132,6 @@ namespace ePsychologist.ViewModels
             }
         }
 
-        private string _suraneSearch = "";
-        public string SurnameSearch
-        {
-            get
-            {
-                return _suraneSearch;
-            }
-            set
-            {
-                _suraneSearch = value;
-                OnPropertyChange(nameof(SurnameSearch));
-            }
-        }
-
         private int _index = -1;
         public int Index
         {
@@ -202,7 +188,7 @@ namespace ePsychologist.ViewModels
                     _search = new RelayCommand(
                         x =>
                         {
-
+                            PatientList = MODEL.GetPatients(NameSearch);
                         },
                         x =>
                         {
@@ -211,6 +197,29 @@ namespace ePsychologist.ViewModels
                         );
                 }
                 return _search;
+            }
+        }
+
+        private ICommand _resetSearch = null;
+        public ICommand ResetSearch
+        {
+            get
+            {
+                if (_resetSearch == null)
+                {
+                    _resetSearch = new RelayCommand(
+                        x =>
+                        {
+                            PatientList = MODEL.GetPatients("");
+                            NameSearch = "";
+                        },
+                        x =>
+                        {
+                            return true;
+                        }
+                        );
+                }
+                return _resetSearch;
             }
         }
 
@@ -281,7 +290,7 @@ namespace ePsychologist.ViewModels
                     _testClick = new RelayCommand(
                         x =>
                         {
-                            Test = "A wlasnie se zmienilem o :)";
+                            Test = "Zmieniłem się :)";
                         },
                         x =>
                         {

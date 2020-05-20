@@ -52,9 +52,13 @@ namespace ePsychologist.Models
             }
         }
 
-        public string[][] getPatients()
+        public string[][] getPatients(string searchParameter)
         {
             string query = $"SELECT id_u, Name, Surname, Date_of_birth, Sex FROM personals;";
+            if (searchParameter != "")
+            {
+                query = $"SELECT id_u, Name, Surname, Date_of_birth, Sex FROM personals WHERE Name Like '%{searchParameter}%';";
+            }
             using (MySqlCommand command = new MySqlCommand(
                 query, cnn))
             {
@@ -88,7 +92,12 @@ namespace ePsychologist.Models
                         return patienBase;
                     }
                     else
-                        throw new Exception("No data found!");
+                    {
+                        string[][] patienBase = new string[1][];
+                        patienBase[0] = new string[1];
+                        patienBase[0][0] = "Err404";
+                        return patienBase;
+                    }
                 }
             }
         }
