@@ -31,38 +31,28 @@
                 <ColumnDefinition Width="0.5*"/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <Grid Grid.Column="0">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="0.8*"/>
-                    <RowDefinition/>
-                </Grid.RowDefinitions>
-                <StackPanel Grid.Row="0">
-                    <Label Content="Name" HorizontalAlignment="Left" Margin="20, 10, 0, 5"/>
+            <StackPanel Grid.Column="0">
+                <Label Content="Name" HorizontalAlignment="Left" Margin="20, 10, 0, 5"/>
 
                 <TextBox Text="{Binding Name}" HorizontalAlignment="Left" Margin="20, 0, 10, 0" MaxLength="13" Width="135"/>
 
                 <Label Content="Surname" HorizontalAlignment="Left" Margin="20, 10, 0, 5"/>
 
-                    <TextBox Text="{Binding Surname}"  HorizontalAlignment="Left" Margin="20, 0, 10, 0" MaxLength="13" Width="135"/>
+                <TextBox Text="{Binding Surname}"  HorizontalAlignment="Left" Margin="20, 0, 10, 0" MaxLength="13" Width="135"/>
+                <StackPanel Orientation="Horizontal">
+                    <StackPanel>
+                        <Label Content="Sex" HorizontalAlignment="Left" Margin="15, 10, 0, 5"/>
+                    <ListBox SelectedValue="{Binding Sex, Mode=TwoWay,Converter={StaticResource stringToCharConverter}}" HorizontalAlignment="Left" Margin="10, 0" >
+                        <ListBoxItem>Woman</ListBoxItem>
+                        <ListBoxItem>Man</ListBoxItem>
+                    </ListBox>
                 </StackPanel>
-                <Grid Grid.Row="1">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition/>
-                        <ColumnDefinition Width="1.2*"/>
-                    </Grid.ColumnDefinitions>
-                    <StackPanel Grid.Column="0">
-                    <Label Content="Sex" HorizontalAlignment="Left" Margin="15, 10, 0, 5"/>
-                        <ListBox SelectedValue="{Binding Sex, Mode=TwoWay,Converter={StaticResource stringToCharConverter}}" HorizontalAlignment="Left" Margin="10, 0" >
-                    <ListBoxItem>Woman</ListBoxItem>
-                    <ListBoxItem>Man</ListBoxItem>
-                </ListBox>
-                    </StackPanel>
-                    <StackPanel Grid.Column="1">
-                        <Label Content="Date of birth" HorizontalAlignment="Left" Margin="0, 10, 0, 5"/>
+                    <StackPanel>
+                <Label Content="Date of birth" HorizontalAlignment="Left" Margin="0, 10, 0, 5"/>
                         <DatePicker SelectedDate="{Binding DateOfBirth}" />
                     </StackPanel>
-                </Grid>
-            </Grid>
+                </StackPanel>
+            </StackPanel>
             <StackPanel Grid.Column="1">
                 <Label Content="Username" HorizontalAlignment="Left" Margin="20, 10, 0, 5"/>
                 <TextBox Text="{Binding Username}"  HorizontalAlignment="Left" Margin="20, 0, 10, 0" MaxLength="13" Width="135"/>
