@@ -200,11 +200,5 @@
   <ItemGroup>
     <Resource Include="Content\logo.png" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\NeuralNetwork\NeuralNetwork.csproj">
-      <Project>{1c7ac2cd-ccba-4b4a-9f2b-7223158d0328}</Project>
-      <Name>NeuralNetwork</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

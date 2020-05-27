@@ -1,14 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace NeuralNetwork
 {
-    class Tmp
+    class Program
     {
         static void Main(string[] args)
         {
             Console.Write("dsadsa");
+            Console.ReadKey();
         }
     }
 }
