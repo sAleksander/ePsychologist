@@ -25,14 +25,14 @@ namespace NeuralNetwork
 
         }
 
-        public void Learning(double[] inputs, double[] expected)
+        public void Learning(double[] inputs, params double[] expected)
         {
             this.inputs = inputs;
             FeedForward();
             //change weights when net stuck in local min
             previousDelta = delta;
             delta = layers[layers.Length - 1].Neurons.Zip(expected, (n, e) => Math.Pow(n.Output - e, 2)).Sum();
-            DeltaDifference(previousDelta, delta, 5, 0.001);
+            DeltaDifference(previousDelta, delta, 3, 0.001);
 
             BackProp(expected);
             FeedForward();
@@ -59,7 +59,7 @@ namespace NeuralNetwork
 
         void DeltaDifference(double pDelta, double Delta, int count, double accuracy)
         {
-            if (Math.Abs(pDelta - Delta) > accuracy)
+            if (Math.Abs(pDelta - Delta) < accuracy)
             {
                 if (deltaDiffCount == count)
                 {
@@ -84,11 +84,29 @@ namespace NeuralNetwork
                 for (int j = 0; j < layers[i].Neurons.Length; j++)
                 {
                     layers[i].Neurons[j].Input = layers[i - 1].Neurons.Select(neuron => neuron.Output * neuron.Weights[j].Value).Sum() + layers[i].Neurons[j].Biases;
-                    layers[i].Neurons[j].Output = TanH(layers[i].Neurons[j].Input);
+                    layers[i].Neurons[j].Output = Sigmoid(layers[i].Neurons[j].Input);
                 }
         }
 
-        public bool FeedForward(double[] Inputs, params double[] expected)
+        public bool FeedForward(double[] Inputs, double[] expected)
+        {
+            for (int i = 0; i < layers[0].Neurons.Length; i++)
+                layers[0].Neurons[i].Output = Inputs[i];
+
+
+            for (int i = 1; i < layers.Length; i++)
+                for (int j = 0; j < layers[i].Neurons.Length; j++)
+                {
+                    layers[i].Neurons[j].Input = layers[i - 1].Neurons.Select(neuron => neuron.Output * neuron.Weights[j].Value).ToArray().Sum() + layers[i].Neurons[j].Biases;
+                    layers[i].Neurons[j].Output = Sigmoid(layers[i].Neurons[j].Input);
+                }
+
+            delta = layers[layers.Length - 1].Neurons.Zip(expected, (n, e) => Math.Pow(n.Output - e, 2)).Sum();
+
+            return delta < 0.2;
+        }
+
+        public int FeedForward(double[] Inputs)
         {
             for (int i = 0; i < layers[0].Neurons.Length; i++)
                 layers[0].Neurons[i].Output = Inputs[i];
@@ -97,11 +115,12 @@ namespace NeuralNetwork
                 for (int j = 0; j < layers[i].Neurons.Length; j++)
                 {
                     layers[i].Neurons[j].Input = layers[i - 1].Neurons.Select(neuron => neuron.Output * neuron.Weights[j].Value).ToArray().Sum() + layers[i].Neurons[j].Biases;
-                    layers[i].Neurons[j].Output = TanH(layers[i].Neurons[j].Input);
+                    layers[i].Neurons[j].Output = Sigmoid(layers[i].Neurons[j].Input);
                 }
 
-            return delta < 0.2;
+            return (int)(layers.Last().Neurons.Last().Output * 100);
         }
+
 
         double Sigmoid(double value)
         {
@@ -166,7 +185,7 @@ namespace NeuralNetwork
             try
             {
                 string[] weights = File.ReadAllLines(path);
-                for (int i = 0; i < weights.Length - 1; i++)
+                for (int i = 0; i < weights.Length; i++)
                     layers[i].InitilizeCustomWeights(weights[i].Split(',').Select(w => double.Parse(w)).ToArray());
             }
             catch
@@ -204,7 +223,7 @@ namespace NeuralNetwork
 
             public Layer(int inputsCount, int outputCount, Random random)
             {
-                this.eta = 0.05;
+                this.eta = 0.45;
                 this.neuronCount = inputsCount;
                 this.outputCount = outputCount;
                 Neurons = new Neuron[inputsCount];
@@ -259,7 +278,7 @@ namespace NeuralNetwork
                 for (int i = 0; i < neuronCount; i++)
                 {
                     Error[i] = 2 * (Neurons[i].Output - expected[i]);
-                    Gamma[i] = Error[i] * DerivativeTanH(Neurons[i].Input);
+                    Gamma[i] = Error[i] * DerivativeSigmoid(Neurons[i].Output);
                 }
 
                 //Caluclating detla weights
@@ -279,7 +298,7 @@ namespace NeuralNetwork
                     //tutaj error to suma gamm z następnej warstwy wagi 
                     for (int j = 0; j < nextLayer.Gamma.Length; j++)
                         Error[i] += nextLayer.Gamma[j] * Neurons[i].Weights[j].Value;
-                    Gamma[i] = Error[i] * DerivativeTanH(Neurons[i].Input);
+                    Gamma[i] = Error[i] * DerivativeSigmoid(Neurons[i].Output);
                 }
 
                 //Caluclating detla weights
@@ -322,6 +341,7 @@ namespace NeuralNetwork
                 {
                     Weights[i].Value -= d;
                 }
+                Biases -= d;
             }
         }
 

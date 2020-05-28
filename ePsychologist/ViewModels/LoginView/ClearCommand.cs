@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Input;
+using NeuralNetwork;
 
 namespace ePsychologist.ViewModels.LoginView
 {
@@ -20,6 +21,7 @@ namespace ePsychologist.ViewModels.LoginView
                 viewModel.Password = "";
                 viewModel.Username = "";
             }
+            AI.Calculate(31, "Male", new System.Drawing.Bitmap("15.png"));
         }
     }
 }
