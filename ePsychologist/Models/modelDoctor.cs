@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NeuralNetwork;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -22,7 +23,7 @@ namespace ePsychologist.Models
 
         private void refreshPatients(string parameter)
         {
-            
+
             patientConversion = DATABASE.getPatients(parameter);
             if (patientConversion[0][0] == "Err404")
             {
@@ -35,6 +36,42 @@ namespace ePsychologist.Models
             {
                 Patient newPatient = new Patient(patientConversion[i][0], patientConversion[i][1], patientConversion[i][2], patientConversion[i][3], patientConversion[i][4]);
                 patients.Add(newPatient);
+            }
+        }
+
+        public void AnalizePatient(int index)
+        {
+            if (patients.ElementAt(index) != null)
+            {
+                int healthy = 20;
+                int ill = 80;
+                int result = AI.Calculate(
+                    patients.ElementAt(index).GetAge(),
+                    patients.ElementAt(index).GetSex(),
+                    patients.ElementAt(index).GetBrainScan()
+                    );
+                if (result < healthy)
+                {
+                    DATABASE.setDiagnoze(
+                        patients.ElementAt(index).GetId(),
+                        "Pacjent jest zdrowy"
+                        );
+                }
+                else if (result > ill)
+                {
+                    DATABASE.setDiagnoze(
+                        patients.ElementAt(index).GetId(),
+                        "Duże prawdopodobieństwo Shizofremi"
+                        );
+                }
+                else
+                {
+                    DATABASE.setDiagnoze(
+                        patients.ElementAt(index).GetId(),
+                        "Pomiar nie pewny brak diagnozy"
+                        );
+                }
+                refreshPatients("");
             }
         }
 

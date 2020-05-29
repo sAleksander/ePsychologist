@@ -70,31 +70,31 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
-        <Label Content="Imie" Grid.Column="0" Grid.ColumnSpan="8" Grid.Row="0" Grid.RowSpan="1" Background="#512bd4" Foreground="white" FontSize="11" Margin="1"/>
-        <TextBox Text="{Binding NameSearch}" Grid.Column="0" Grid.ColumnSpan="8" Grid.Row="1" Grid.RowSpan="1" BorderBrush="#3498db" Background="#171717" Foreground="white" FontSize="11" Margin="1"/>
+        <Label Content="Imie" Grid.Column="0" Grid.ColumnSpan="8" Grid.Row="0" Grid.RowSpan="1" FontSize="11" Margin="1" BorderThickness="1" BorderBrush="Black"/>
+        <TextBox Text="{Binding NameSearch}" Grid.Column="0" Grid.ColumnSpan="8" Grid.Row="1" Grid.RowSpan="1" FontSize="11" Margin="1" BorderThickness="1" BorderBrush="Black"/>
 
-        <Button Command="{Binding Search}" Content="Szukaj" Grid.Column="0" Grid.ColumnSpan="8" Grid.Row="2" Grid.RowSpan="1" Background="#d83b01" Foreground="white" FontSize="12" Margin="1"/>
-        <Button Command="{Binding ResetSearch}" Content="Reset" Grid.Column="0" Grid.ColumnSpan="8" Grid.Row="3" Grid.RowSpan="1" Background="Gray" Foreground="white" FontSize="12" Margin="1"/>
+        <Button Command="{Binding Search}" Content="Szukaj" Grid.Column="0" Grid.ColumnSpan="8" Grid.Row="2" Grid.RowSpan="1" FontSize="12" Margin="1" BorderThickness="1" BorderBrush="Black"/>
+        <Button Command="{Binding ResetSearch}" Content="Reset" Grid.Column="0" Grid.ColumnSpan="8" Grid.Row="3" Grid.RowSpan="1" FontSize="12" Margin="1" BorderThickness="1" BorderBrush="Black"/>
 
-        <ListBox  ItemsSource="{Binding PatientList}" SelectedIndex="{Binding Index}" Grid.Column="0" Grid.ColumnSpan="8" Grid.Row="4" Grid.RowSpan="14" Background="#32145a" Foreground="white" FontSize="12" Margin="1"/>
-        <Button Command="{Binding GetPatientInfo}" Content="Wyświetl > " Grid.Column="0" Grid.ColumnSpan="8" Grid.Row="18" Grid.RowSpan="1" Background="Gray" Foreground="white" FontSize="12" Margin="1"/>
+        <ListBox ItemsSource="{Binding PatientList}" SelectedIndex="{Binding Index}" Grid.Column="0" Grid.ColumnSpan="8" Grid.Row="4" Grid.RowSpan="14" FontSize="12" Margin="1" BorderThickness="1" BorderBrush="Black"/>
+        <Button Command="{Binding GetPatientInfo}" Content="Wyświetl > " Grid.Column="0" Grid.ColumnSpan="8" Grid.Row="18" Grid.RowSpan="1" FontSize="12" Margin="1" BorderThickness="1" BorderBrush="Black"/>
 
-        <Frame Grid.Column="8" Grid.ColumnSpan="23" Grid.Row="0" Grid.RowSpan="19" Background="#002050" Margin="1"/>
-        <Label  Content="Imie"  Grid.Column="8" Grid.ColumnSpan="3" Grid.Row="0" Grid.RowSpan="2" Background="#0078d7" Foreground="white" FontSize="11" Margin="1"/>
-        <Label  Content="{Binding PatientName}"  Grid.Column="11" Grid.ColumnSpan="20" Grid.Row="0" Grid.RowSpan="2" Background="#0078d7" Foreground="white" FontSize="11" Margin="1"/>
-        <Label  Content="Nazwisko"  Grid.Column="8" Grid.ColumnSpan="3" Grid.Row="2" Grid.RowSpan="2" Background="#0078d7" Foreground="white" FontSize="11" Margin="1"/>
-        <Label Content="{Binding PatientSurname}" Grid.Column="11" Grid.ColumnSpan="20" Grid.Row="2" Grid.RowSpan="2" Background="#243a5e" Foreground="white" FontSize="11" Margin="1"/>
-        <Label  Content="Płeć"  Grid.Column="8" Grid.ColumnSpan="3" Grid.Row="4" Grid.RowSpan="2" Background="#0078d7" Foreground="white" FontSize="11" Margin="1"/>
-        <Label  Content="{Binding PatientSex}"  Grid.Column="11" Grid.ColumnSpan="20" Grid.Row="4" Grid.RowSpan="2" Background="#0078d7" Foreground="white" FontSize="11" Margin="1"/>
-        <Label  Content="Data urodzin"  Grid.Column="8" Grid.ColumnSpan="3" Grid.Row="6" Grid.RowSpan="2" Background="#0078d7" Foreground="white" FontSize="11" Margin="1"/>
-        <Label  Content="{Binding PatientBirth}"  Grid.Column="11" Grid.ColumnSpan="20" Grid.Row="6" Grid.RowSpan="2" Background="#243a5e" Foreground="white" FontSize="11" Margin="1"/>
-        <Label  Content="Czy chory"  Grid.Column="8" Grid.ColumnSpan="3" Grid.Row="8" Grid.RowSpan="2" Background="#0078d7" Foreground="white" FontSize="11" Margin="1"/>
-        <Label Content="{Binding PatientIll}" Grid.Column="11" Grid.ColumnSpan="20" Grid.Row="8" Grid.RowSpan="2" Background="#0078d7" Foreground="white" FontSize="11" Margin="1"/>
-        <Label  Content="Id"  Grid.Column="8" Grid.ColumnSpan="3" Grid.Row="10" Grid.RowSpan="2" Background="#0078d7" Foreground="white" FontSize="11" Margin="1"/>
-        <Label Content="{Binding PatientId}" Grid.Column="11" Grid.ColumnSpan="20" Grid.Row="10" Grid.RowSpan="2" Background="#243a5e" Foreground="white" FontSize="11" Margin="1"/>
+        <Frame Grid.Column="8" Grid.ColumnSpan="23" Grid.Row="0" Grid.RowSpan="19" Margin="1" BorderThickness="1" BorderBrush="Black"/>
+        <Label  Content="Imie"  Grid.Column="8" Grid.ColumnSpan="3" Grid.Row="0" Grid.RowSpan="2"  FontSize="11" Margin="1" BorderThickness="1" BorderBrush="Black"/>
+        <Label  Content="{Binding PatientName}"  Grid.Column="11" Grid.ColumnSpan="20" Grid.Row="0" Grid.RowSpan="2" FontSize="11" Margin="1" BorderThickness="1" BorderBrush="Black"/>
+        <Label  Content="Nazwisko"  Grid.Column="8" Grid.ColumnSpan="3" Grid.Row="2" Grid.RowSpan="2" FontSize="11" Margin="1" BorderThickness="1" BorderBrush="Black"/>
+        <Label Content="{Binding PatientSurname}" Grid.Column="11" Grid.ColumnSpan="20" Grid.Row="2" Grid.RowSpan="2" FontSize="11" Margin="1" BorderThickness="1" BorderBrush="Black"/>
+        <Label  Content="Płeć"  Grid.Column="8" Grid.ColumnSpan="3" Grid.Row="4" Grid.RowSpan="2" FontSize="11" Margin="1" BorderThickness="1" BorderBrush="Black"/>
+        <Label  Content="{Binding PatientSex}"  Grid.Column="11" Grid.ColumnSpan="20" Grid.Row="4" Grid.RowSpan="2" FontSize="11" Margin="1" BorderThickness="1" BorderBrush="Black"/>
+        <Label  Content="Data urodzin"  Grid.Column="8" Grid.ColumnSpan="3" Grid.Row="6" Grid.RowSpan="2" FontSize="11" Margin="1" BorderThickness="1" BorderBrush="Black"/>
+        <Label  Content="{Binding PatientBirth}"  Grid.Column="11" Grid.ColumnSpan="20" Grid.Row="6" Grid.RowSpan="2" FontSize="11" Margin="1" BorderThickness="1" BorderBrush="Black"/>
+        <Label  Content="Czy chory"  Grid.Column="8" Grid.ColumnSpan="3" Grid.Row="8" Grid.RowSpan="2"  FontSize="11" Margin="1" BorderThickness="1" BorderBrush="Black"/>
+        <Label Content="{Binding PatientIll}" Grid.Column="11" Grid.ColumnSpan="20" Grid.Row="8" Grid.RowSpan="2" FontSize="11" Margin="1" BorderThickness="1" BorderBrush="Black"/>
+        <Label  Content="Id"  Grid.Column="8" Grid.ColumnSpan="3" Grid.Row="10" Grid.RowSpan="2"  FontSize="11" Margin="1" BorderThickness="1" BorderBrush="Black"/>
+        <Label Content="{Binding PatientId}" Grid.Column="11" Grid.ColumnSpan="20" Grid.Row="10" Grid.RowSpan="2" FontSize="11" Margin="1" BorderThickness="1" BorderBrush="Black"/>
 
-        <Button Command="{Binding ReAnalize}" Content="Ponowna analiza" Grid.Column="8" Grid.ColumnSpan="23" Grid.Row="14" Grid.RowSpan="2" Background="#d83b01" Foreground="white" FontSize="15" Margin="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+        <Button Command="{Binding ReAnalize}" Content="Analiza" Grid.Column="8" Grid.ColumnSpan="23" Grid.Row="14" Grid.RowSpan="2" FontSize="15" Margin="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" BorderThickness="1" BorderBrush="Black"/>
 
-        <Button Command="{Binding LogOut}" Content="Wyloguj" Grid.Column="8" Grid.ColumnSpan="23" Grid.Row="17" Grid.RowSpan="2" Background="Red" Foreground="white" FontSize="15" Margin="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+        <Button Command="{Binding LogOut}" Content="Wyloguj" Grid.Column="8" Grid.ColumnSpan="23" Grid.Row="17" Grid.RowSpan="2" FontSize="15" Margin="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" BorderThickness="1" BorderBrush="Black"/>
     </Grid>
 </Page>

@@ -56,7 +56,7 @@ namespace ePsychologist.ViewModels
         {
             get
             {
-                return _patientName;
+                return _patientSurname;
             }
             set
             {
@@ -158,12 +158,14 @@ namespace ePsychologist.ViewModels
                         {
                             if (Index != -1)
                             {
+                                trueIndex = Index;
                                 string[] temp = MODEL.GetPatientInfo(Index);
                                 PatientName = temp[0];
                                 PatientSurname = temp[1];
                                 PatientBirth = temp[2];
                                 PatientId = temp[3];
                                 PatientSex = temp[4];
+                                PatientIll = temp[5];
 
                             }
                         },
@@ -223,6 +225,7 @@ namespace ePsychologist.ViewModels
             }
         }
 
+        private int trueIndex = 0;
         private ICommand _reAnalize = null;
         public ICommand ReAnalize
         {
@@ -233,7 +236,14 @@ namespace ePsychologist.ViewModels
                     _reAnalize = new RelayCommand(
                         x =>
                         {
-
+                            //MODEL.AnalizePatient(trueIndex);
+                            string[] temp = MODEL.GetPatientInfo(Index);
+                            PatientName = temp[0];
+                            PatientSurname = temp[1];
+                            PatientBirth = temp[2];
+                            PatientId = temp[3];
+                            PatientSex = temp[4];
+                            PatientIll = temp[5];
                         },
                         x =>
                         {

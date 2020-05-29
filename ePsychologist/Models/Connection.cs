@@ -52,6 +52,16 @@ namespace ePsychologist.Models
             }
         }
 
+        public void setDiagnoze(int userId, string results)
+        {
+            string query = $"UPDATE personals SET diagnosis = '{results}' WHERE id_u = {userID};";
+            using (MySqlCommand command = new MySqlCommand(query, cnn))
+            {
+                command.ExecuteNonQuery();
+            }
+        }
+
+
         public string[][] getPatients(string searchParameter)
         {
             string query = $"SELECT id_u, Name, Surname, Date_of_birth, Sex FROM personals;";
