@@ -37,7 +37,7 @@ namespace ePsychologist.Models
         }
         public string[] getOnePatient(int userId)
         {
-            string query = $"SELECT Name, Surname, Date_of_birth, Sex FROM personals WHERE id_u = {userId};";
+            string query = $"SELECT Name, Surname, Date_of_birth, Sex FROM personals WHERE id_u = '{userId}';";
             using (MySqlCommand command = new MySqlCommand(query, cnn))
             {
                 using (MySqlDataReader reader = command.ExecuteReader())
@@ -58,7 +58,7 @@ namespace ePsychologist.Models
         {
             Debug.WriteLine("results: " + results);
             Debug.WriteLine("userId: " + userId);
-            string query = $"UPDATE personals SET diagnosis = '{results}' WHERE id_u = '{userID}';";
+            string query = $"UPDATE personals SET diagnosis = '{results}' WHERE id_u = '{userId}';";
             using (MySqlCommand command = new MySqlCommand(query, cnn))
             {
                 command.ExecuteNonQuery();
