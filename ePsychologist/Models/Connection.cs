@@ -64,10 +64,10 @@ namespace ePsychologist.Models
 
         public string[][] getPatients(string searchParameter)
         {
-            string query = $"SELECT id_u, Name, Surname, Date_of_birth, Sex FROM personals;";
+            string query = $"SELECT id_u, Name, Surname, Date_of_birth, Sex, diagnosis FROM personals;";
             if (searchParameter != "")
             {
-                query = $"SELECT id_u, Name, Surname, Date_of_birth, Sex FROM personals WHERE Name Like '%{searchParameter}%';";
+                query = $"SELECT id_u, Name, Surname, Date_of_birth, Sex, diagnosis FROM personals WHERE Name Like '%{searchParameter}%';";
             }
             using (MySqlCommand command = new MySqlCommand(
                 query, cnn))
@@ -91,11 +91,24 @@ namespace ePsychologist.Models
                         string[][] patienBase = new string[amount][];
                         while (reader.Read())
                         {
-                            string[] newRow = new string[5];
+                            string[] newRow = new string[6];
                             for (int i = 0; i < 5; i++)
                             {
                                 newRow[i] = reader[i].ToString();
                             }
+                            if (reader[5].ToString() == "" || reader[5].ToString() == null)
+                            {
+                                newRow[5] = "Nie zdjagnozowany";
+                            }
+                            else
+                            {
+                                newRow[5] = reader[5].ToString();
+                            }
+                            for (int i = 0; i < 5; i++)
+                            {
+                                Debug.Write(reader[i].ToString() + "||");
+                            }
+                            Debug.WriteLine("");
                             patienBase[j] = newRow;
                             j++;
                         }

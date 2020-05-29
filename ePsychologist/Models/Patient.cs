@@ -18,18 +18,7 @@ namespace ePsychologist.Models
         private string diagnose;
         private Bitmap brainScan;
         #endregion
-        public Patient(string id, string name, string surname,string dateofbirth, string sex)
-        {
-            this.id = id;
-            this.name = name;
-            this.surname = surname;
-            this.dateofbirth = dateofbirth;
-            this.sex = sex;
-            brainScan = null;
-            this.diagnose = "brak";
-        }
-
-        public Patient(string id, string name, string surname, string dateofbirth, string sex, string diagnose, Bitmap brainScan)
+        public Patient(string id, string name, string surname,string dateofbirth, string sex, string diagnose)
         {
             this.id = id;
             this.name = name;
@@ -37,7 +26,6 @@ namespace ePsychologist.Models
             this.dateofbirth = dateofbirth;
             this.sex = sex;
             this.diagnose = diagnose;
-            this.brainScan = brainScan;
         }
 
         public string Diagnose

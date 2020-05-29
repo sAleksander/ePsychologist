@@ -34,7 +34,7 @@ namespace ePsychologist.Models
             patients = new List<Patient>();
             for (int i = 0; i < height; i++)
             {
-                Patient newPatient = new Patient(patientConversion[i][0], patientConversion[i][1], patientConversion[i][2], patientConversion[i][3], patientConversion[i][4]);
+                Patient newPatient = new Patient(patientConversion[i][0], patientConversion[i][1], patientConversion[i][2], patientConversion[i][3], patientConversion[i][4], patientConversion[i][5]);
                 patients.Add(newPatient);
             }
         }
