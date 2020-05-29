@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
+using System.Drawing;
+using System.IO;
 using System.Text;
 using MySql.Data.MySqlClient;
 
@@ -33,20 +35,20 @@ namespace ePsychologist.Models
         {
             return userID;
         }
-        public string [] getOnePatient(int userId)
+        public string[] getOnePatient(int userId)
         {
             string query = $"SELECT Name, Surname, Date_of_birth, Sex FROM personals WHERE id_u = {userId};";
             using (MySqlCommand command = new MySqlCommand(query, cnn))
             {
-                using(MySqlDataReader reader=command.ExecuteReader())
+                using (MySqlDataReader reader = command.ExecuteReader())
                 {
                     reader.Read();
-                        string[] patientData = new string[4];
-                        for (int i = 0; i < 4; i++)
-                        {
-                            patientData[i] = reader[i].ToString();
-                        }
-                        return patientData;
+                    string[] patientData = new string[4];
+                    for (int i = 0; i < 4; i++)
+                    {
+                        patientData[i] = reader[i].ToString();
+                    }
+                    return patientData;
 
                 }
             }
@@ -54,10 +56,58 @@ namespace ePsychologist.Models
 
         public void setDiagnoze(int userId, string results)
         {
-            string query = $"UPDATE personals SET diagnosis = '{results}' WHERE id_u = {userID};";
+            Debug.WriteLine("results: " + results);
+            Debug.WriteLine("userId: " + userId);
+            string query = $"UPDATE personals SET diagnosis = '{results}' WHERE id_u = '{userID}';";
             using (MySqlCommand command = new MySqlCommand(query, cnn))
             {
                 command.ExecuteNonQuery();
+            }
+        }
+
+        public Bitmap[] getPatientsBrainScans(string searchParameter)
+        {
+            string query = $"SELECT images FROM personals;";
+            if (searchParameter != "")
+            {
+                query = $"SELECT images FROM personals WHERE Name Like '%{searchParameter}%';";
+            }
+            using (MySqlCommand command = new MySqlCommand(
+                query, cnn))
+            {
+                int amount = 0;
+                using (MySqlDataReader reader = command.ExecuteReader())
+                {
+                    if (reader.HasRows)
+                    {
+                        while (reader.Read())
+                        {
+                            amount++;
+                        }
+                    }
+                }
+                using (MySqlDataReader reader = command.ExecuteReader())
+                {
+                    int j = 0;
+                    Bitmap[] patienBase = new Bitmap[amount];
+                    while (reader.Read())
+                    {
+                        byte[] converter = reader[0] as byte[];
+                        if (converter == null)
+                        {
+                            patienBase[j] = null;
+                        }
+                        else
+                        {
+                            using (var ms = new MemoryStream(converter))
+                            {
+                                patienBase[j] = new Bitmap(ms);
+                            }
+                        }
+                        j++;
+                    }
+                    return patienBase;
+                }
             }
         }
 
@@ -98,7 +148,7 @@ namespace ePsychologist.Models
                             }
                             if (reader[5].ToString() == "" || reader[5].ToString() == null)
                             {
-                                newRow[5] = "Nie zdjagnozowany";
+                                newRow[5] = "Nie zdiagnozowany";
                             }
                             else
                             {
@@ -106,9 +156,7 @@ namespace ePsychologist.Models
                             }
                             for (int i = 0; i < 5; i++)
                             {
-                                Debug.Write(reader[i].ToString() + "||");
                             }
-                            Debug.WriteLine("");
                             patienBase[j] = newRow;
                             j++;
                         }

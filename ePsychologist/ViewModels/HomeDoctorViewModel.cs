@@ -236,7 +236,7 @@ namespace ePsychologist.ViewModels
                     _reAnalize = new RelayCommand(
                         x =>
                         {
-                            //MODEL.AnalizePatient(trueIndex);
+                            MODEL.AnalizePatient(trueIndex);
                             string[] temp = MODEL.GetPatientInfo(Index);
                             PatientName = temp[0];
                             PatientSurname = temp[1];
