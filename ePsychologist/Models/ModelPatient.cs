@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -35,5 +36,15 @@ namespace ePsychologist.Models
             return patient[3];
         }
 
+        public string getDiagnosis()
+        {
+            Debug.WriteLine($"DIagnoza {patient[4]}");
+            return patient[4];
+        }
+
+        public void updatePatientInfo(string name, string surname, string dateOfBirth, string sex)
+        {
+            con.UpdatePatientInfo(con.GetUserID(), name, surname, sex, dateOfBirth);
+        }
     }
 }

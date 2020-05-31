@@ -27,9 +27,9 @@
                 <ColumnDefinition Width="1*"/>
             </Grid.ColumnDefinitions>
             <StackPanel Grid.Column="1">
-                <Label  Content="Informacje o chorobie" FontSize="17" Margin="0,10,0,10" Background="SlateGray" BorderThickness="0" HorizontalContentAlignment="Center"/>
+                <Label  Content="Diagnoza" FontSize="17" Margin="0,10,0,10" Background="SlateGray" BorderThickness="0" HorizontalContentAlignment="Center"/>
 
-                <Label Content="{Binding SicknessInfo}" FontSize="14" Background="LightGray" Height="115"/>
+                <TextBlock Text="{Binding SicknessInfo}" FontSize="15" Background="LightGray" Height="30" VerticalAlignment="Center" />
                 <Label Content="Edytuj dane osobowe" FontSize="17" Margin="0,10,0,10" Background="SlateGray" BorderThickness="0" HorizontalContentAlignment="Center"/>
 
                 <Grid>
@@ -49,7 +49,7 @@
                     <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding PatientSurname}" Background="LightGray" FontSize="15" VerticalAlignment="Center"/>
                     <Label Grid.Row="2" Grid.Column="0" Content="Płeć" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="15"/>
                     <TextBox Grid.Row="2" Grid.Column="1" Background="LightGray" VerticalAlignment="Center" FontSize="15" Text="{Binding PatientGender}"/>
-                    
+
                     <Label Grid.Row="3" Grid.Column="0" FontSize="14" Content="Data urodzenia" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                     <DatePicker Grid.Row="3" Grid.Column="1" SelectedDate="{Binding PatientBirthday}" Background="SlateGray" BorderBrush="SlateGray" OpacityMask="SlateGray" VerticalAlignment="Center"/>
                 </Grid>

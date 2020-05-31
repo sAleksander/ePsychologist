@@ -37,20 +37,38 @@ namespace ePsychologist.Models
         }
         public string[] getOnePatient(int userId)
         {
-            string query = $"SELECT Name, Surname, Date_of_birth, Sex FROM personals WHERE id_u = {userId};";
+            string query = $"SELECT Name, Surname, Date_of_birth, Sex, Diagnosis FROM personals WHERE id_u = {userId};";
             using (MySqlCommand command = new MySqlCommand(query, cnn))
             {
                 using (MySqlDataReader reader = command.ExecuteReader())
                 {
                     reader.Read();
-                    string[] patientData = new string[4];
-                    for (int i = 0; i < 4; i++)
+                    string[] patientData = new string[5];
+                    for (int i = 0; i < 5; i++)
                     {
-                        patientData[i] = reader[i].ToString();
+                            patientData[i] = reader[i].ToString();
                     }
+
+                    if (patientData[4].Equals(""))
+                        patientData[4] = "Oczekuje na diagnozę";
+                    else if (patientData[4].Equals("Pacjent jest zdrowy"))
+                        patientData[4] = "Jesteś zdrowy";
+                    else
+                        patientData[4] = "Jesteś chory na schizofrenie";
+                   
+
                     return patientData;
 
                 }
+            }
+        }
+
+        public void UpdatePatientInfo(int userId, string name, string surname, string sex, string dateOfBirth)
+        {
+            string query = $"UPDATE personals SET name = '{name}', surname ='{surname}', sex = '{sex}', date_of_birth='{dateOfBirth}' WHERE id_u={userId}";
+            using(MySqlCommand command = new MySqlCommand(query,cnn))
+            {
+                command.ExecuteNonQuery();
             }
         }
 
@@ -58,7 +76,7 @@ namespace ePsychologist.Models
         {
             Debug.WriteLine("results: " + results);
             Debug.WriteLine("userId: " + userId);
-            string query = $"UPDATE personals SET diagnosis = '{results}' WHERE id_u = '{userID}';";
+            string query = $"UPDATE personals SET diagnosis = '{results}' WHERE id_u ={userId};";
             using (MySqlCommand command = new MySqlCommand(query, cnn))
             {
                 command.ExecuteNonQuery();
