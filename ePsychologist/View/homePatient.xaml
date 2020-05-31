@@ -8,7 +8,7 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="homePatient"
-      Background="LightSlateGray"
+      Background="White"
       >
 
     <Page.Resources>
@@ -19,7 +19,7 @@
             <RowDefinition Height="0.13*"/>
             <RowDefinition Height="2*"/>
         </Grid.RowDefinitions>
-        <Label x:Name="homePatientLabel" Grid.Row="0" Content="MODUŁ PACJENTA" FontSize="17" HorizontalContentAlignment="Center" Background="SlateGray" BorderThickness="0"/>
+        <Label x:Name="homePatientLabel" Grid.Row="0" Content="MODUŁ PACJENTA" FontSize="17" HorizontalContentAlignment="Center" Background="LightGray" BorderThickness="0"/>
         <Grid Grid.Row="2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="1*"/>
@@ -27,10 +27,10 @@
                 <ColumnDefinition Width="1*"/>
             </Grid.ColumnDefinitions>
             <StackPanel Grid.Column="1">
-                <Label  Content="Diagnoza" FontSize="17" Margin="0,10,0,10" Background="SlateGray" BorderThickness="0" HorizontalContentAlignment="Center"/>
+                <Label  Content="Diagnoza" FontSize="17" Margin="0,10,0,10" Background="Gray" BorderThickness="0" HorizontalContentAlignment="Center"/>
 
                 <TextBlock Text="{Binding SicknessInfo}" FontSize="15" Background="LightGray" Height="30" VerticalAlignment="Center" />
-                <Label Content="Edytuj dane osobowe" FontSize="17" Margin="0,10,0,10" Background="SlateGray" BorderThickness="0" HorizontalContentAlignment="Center"/>
+                <Label Content="Edytuj dane osobowe" FontSize="17" Margin="0,10,0,10" Background="Gray" BorderThickness="0" HorizontalContentAlignment="Center"/>
 
                 <Grid>
                     <Grid.ColumnDefinitions>
@@ -51,10 +51,10 @@
                     <TextBox Grid.Row="2" Grid.Column="1" Background="LightGray" VerticalAlignment="Center" FontSize="15" Text="{Binding PatientGender}"/>
 
                     <Label Grid.Row="3" Grid.Column="0" FontSize="14" Content="Data urodzenia" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                    <DatePicker Grid.Row="3" Grid.Column="1" SelectedDate="{Binding PatientBirthday}" Background="SlateGray" BorderBrush="SlateGray" OpacityMask="SlateGray" VerticalAlignment="Center"/>
+                    <DatePicker Grid.Row="3" Grid.Column="1" SelectedDate="{Binding PatientBirthday}" Background="SlateGray" BorderBrush="Gray" OpacityMask="SlateGray" VerticalAlignment="Center"/>
                 </Grid>
-                <Button Content="Zatwierdź" Command="{Binding ConfirmChanges}" FontSize="17" Background="SlateGray" BorderThickness="0" Margin="200,20,40,0"/>
-                <Button Command="{Binding LogOut}" Content="Wyloguj się" FontSize="17" Margin="0,10,0,10" Background="SlateGray" BorderThickness="0"/>
+                <Button Content="Zatwierdź" Command="{Binding ConfirmChanges}" FontSize="17" Background="Gray" BorderThickness="0" Margin="200,20,40,0"/>
+                <Button Command="{Binding LogOut}" Content="Wyloguj się" FontSize="17" Margin="0,10,0,10" Background="Gray" BorderThickness="0"/>
             </StackPanel>
         </Grid>
 
