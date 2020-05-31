@@ -46,7 +46,7 @@
                         <Label Content="Sex" HorizontalAlignment="Left" Margin="15, 10, 0, 5"/>
                     <ListBox SelectedValue="{Binding Sex, Mode=TwoWay,Converter={StaticResource stringToCharConverter}}" HorizontalAlignment="Left" Margin="10, 0" >
                         <ListBoxItem>Woman</ListBoxItem>
-                        <ListBoxItem>Man</ListBoxItem>
+                        <ListBoxItem>Men</ListBoxItem>
                     </ListBox>
                 </StackPanel>
                     <StackPanel>

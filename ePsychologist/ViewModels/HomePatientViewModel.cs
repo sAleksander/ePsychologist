@@ -27,6 +27,7 @@ namespace ePsychologist.ViewModels
             PatientSurname = model.getSurname();
             PatientGender = model.getSex();
             PatientBirthday = Convert.ToDateTime(model.getDateOfBirth());
+            SicknessInfo = model.getDiagnosis();
         }
 
         private string _patientName;
@@ -73,7 +74,7 @@ namespace ePsychologist.ViewModels
             }
         }
 
-        private string _sicknessInfo = null;
+        private string _sicknessInfo;
         public string SicknessInfo
         {
             get { return _sicknessInfo; }
@@ -96,7 +97,7 @@ namespace ePsychologist.ViewModels
                     _confirmChanges = new RelayCommand(
                         x =>
                         {
-
+                            model.updatePatientInfo(PatientName,PatientSurname,PatientBirthday.ToString("yyyy-MM-dd"),PatientGender);
                         },
                         x =>
                         {
