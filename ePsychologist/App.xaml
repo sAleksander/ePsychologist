@@ -21,6 +21,9 @@
         <DataTemplate DataType="{x:Type viewModels:RegisterViewModel}">
             <view:Register/>
         </DataTemplate>
-
+        
+        <Style x:Key="customFont">
+            <Setter Property="TextElement.FontFamily" Value="/Content/#dotsfont"/>
+        </Style>
     </Application.Resources>
 </Application>

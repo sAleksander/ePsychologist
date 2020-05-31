@@ -98,6 +98,11 @@
     <Compile Include="Models\modelDoctor.cs" />
     <Compile Include="Models\ModelPatient.cs" />
     <Compile Include="Models\Patient.cs" />
+    <Compile Include="Properties\Literals.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Literals.resx</DependentUpon>
+    </Compile>
     <Compile Include="ViewModels\BasicViewModel.cs" />
     <Compile Include="ViewModels\HomeDoctorViewModel.cs" />
     <Compile Include="ViewModels\HomePatientViewModel.cs" />
@@ -169,10 +174,15 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <EmbeddedResource Include="Properties\Literals.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Literals.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <Resource Include="Content\dotsfont.ttf" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

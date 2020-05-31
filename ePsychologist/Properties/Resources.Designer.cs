@@ -8,11 +8,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ePsychologist.Properties
-{
+namespace ePsychologist.Properties {
     using System;
-
-
+    
+    
     /// <summary>
     ///   Klasa zasobu wymagająca zdefiniowania typu do wyszukiwania zlokalizowanych ciągów itd.
     /// </summary>
@@ -20,10 +19,10 @@ namespace ePsychologist.Properties
     // przez narzędzie, takie jak ResGen lub Visual Studio.
     // Aby dodać lub usunąć składową, edytuj plik ResX, a następnie ponownie uruchom narzędzie ResGen
     // z opcją /str lub ponownie utwórz projekt VS.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Resources {
+    public class Resources {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -37,12 +36,9 @@ namespace ePsychologist.Properties
         /// Zwraca buforowane wystąpienie ResourceManager używane przez tę klasę.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager
-        {
-            get
-            {
-                if (object.ReferenceEquals(resourceMan, null))
-                {
+        public static global::System.Resources.ResourceManager ResourceManager {
+            get {
+                if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("ePsychologist.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
@@ -55,7 +51,7 @@ namespace ePsychologist.Properties
         ///   przypadków przeszukiwania zasobów za pomocą tej klasy zasobów wymagającej zdefiniowania typu.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -63,45 +59,48 @@ namespace ePsychologist.Properties
                 resourceCulture = value;
             }
         }
-
-        internal static string DB
-        {
-            get
-            {
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu schizofrenia.
+        /// </summary>
+        public static string DB {
+            get {
                 return ResourceManager.GetString("DB", resourceCulture);
             }
         }
         
-        internal static string DB_HOST
-        {
-            get
-            {
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu 83.230.14.31.
+        /// </summary>
+        public static string DB_HOST {
+            get {
                 return ResourceManager.GetString("DB_HOST", resourceCulture);
             }
         }
-
-        internal static string DB_PASS
-        {
-            get
-            {
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu bestwaifugabi.
+        /// </summary>
+        public static string DB_PASS {
+            get {
                 return ResourceManager.GetString("DB_PASS", resourceCulture);
             }
         }
-
         
-        internal static string DB_PORT
-        {
-            get
-            {
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu 12345.
+        /// </summary>
+        public static string DB_PORT {
+            get {
                 return ResourceManager.GetString("DB_PORT", resourceCulture);
             }
         }
-            
         
-        internal static string DB_USER
-        {
-            get
-            {
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu user.
+        /// </summary>
+        public static string DB_USER {
+            get {
                 return ResourceManager.GetString("DB_USER", resourceCulture);
             }
         }

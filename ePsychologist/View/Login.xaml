@@ -41,7 +41,7 @@
 
             <StackPanel Grid.Column="2">
                 <Label x:Name="PasswordLb" Margin="0 25 0 0" HorizontalAlignment="Left" Foreground="Black" Content="Password:"/>
-                <TextBox x:Name="PasswordBox" Text="{Binding Password, Mode=TwoWay}" Margin="10 0" MaxLength="12"/>
+                <TextBox x:Name="PasswordBox" Text="{Binding Password, Mode=TwoWay}" Margin="10 0" MaxLength="12" Style="{StaticResource customFont}" FontSize="10" Height="18" AllowDrop="False" VerticalContentAlignment="Center"/>
             </StackPanel>
         </Grid>
 

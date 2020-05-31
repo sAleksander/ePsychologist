@@ -23,7 +23,12 @@ namespace ePsychologist.View
         public Login()
         {
             InitializeComponent();
+            DataObject.AddCopyingHandler(PasswordBox, NoCopy);
         }
-        
+
+        private void NoCopy(object sender, DataObjectCopyingEventArgs e)
+        {
+            e.CancelCommand();
+        }
     }
 }
