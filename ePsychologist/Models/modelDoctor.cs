@@ -32,11 +32,10 @@ namespace ePsychologist.Models
                 return;
             }
             int height = patientConversion.Length;
-            int width = patientConversion[0].Length; // potencjalny problem jesli nie ma zadnego pacjenta w bazie
-            patients = new List<Patient>();
+            int width = patientConversion[0].Length; patients = new List<Patient>();
             for (int i = 0; i < height; i++)
             {
-                Patient newPatient = new Patient(patientConversion[i][0], patientConversion[i][1], patientConversion[i][2], patientConversion[i][3], patientConversion[i][4], patientConversion[i][5],brainConversion[i]);
+                Patient newPatient = new Patient(patientConversion[i][0], patientConversion[i][1], patientConversion[i][2], patientConversion[i][3], patientConversion[i][4], patientConversion[i][5], brainConversion[i]);
                 patients.Add(newPatient);
             }
         }
@@ -93,7 +92,7 @@ namespace ePsychologist.Models
             {
                 result[i] = patients[i].ToString();
             }
-            return result; // potencjalny problem jesli brak pacjentow w bazie
+            return result;
         }
 
         public string[] GetPatientInfo(int index)
