@@ -1,8 +1,10 @@
-﻿using NeuralNetwork;
+﻿using Microsoft.Win32;
+using NeuralNetwork;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -32,6 +34,7 @@ namespace ePsychologist.Models
                 return;
             }
             int height = patientConversion.Length;
+            Debug.WriteLine("mozgi zrefreshowane");
             int width = patientConversion[0].Length; patients = new List<Patient>();
             for (int i = 0; i < height; i++)
             {
@@ -46,6 +49,7 @@ namespace ePsychologist.Models
             {
                 if (patients.ElementAt(index).GetBrainScan() == null)
                 {
+                    Debug.WriteLine("zdjecie jest nullem!");
                     return;
                 }
                 int healthy = 20;
@@ -80,6 +84,33 @@ namespace ePsychologist.Models
                         );
                 }
                 Debug.WriteLine(result + " doszedlem do konca");
+                refreshPatients("");
+            }
+
+            Debug.WriteLine("wykonane");
+        }
+
+        public void SetBrainScan(int index)
+        {
+            OpenFileDialog OFD = new OpenFileDialog();
+            if (OFD.ShowDialog() == true)
+            {
+                string fullFileName = OFD.FileName;
+                Debug.WriteLine(fullFileName);
+                if (fullFileName.Contains(".png"))
+                {
+                    byte[] rawData = File.ReadAllBytes(fullFileName);
+                    if (rawData == null)
+                    {
+                        Debug.WriteLine("nie tak mialo byc");
+                    }
+                    Debug.WriteLine(patients.ElementAt(index).GetId());
+                    DATABASE.setBrainScan(patients.ElementAt(index).GetId(), rawData);
+                }
+                else
+                {
+                    Debug.WriteLine("nie poprawny plik!");
+                }
                 refreshPatients("");
             }
         }

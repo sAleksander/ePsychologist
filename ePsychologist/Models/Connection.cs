@@ -46,7 +46,7 @@ namespace ePsychologist.Models
                     string[] patientData = new string[5];
                     for (int i = 0; i < 5; i++)
                     {
-                            patientData[i] = reader[i].ToString();
+                        patientData[i] = reader[i].ToString();
                     }
 
                     if (patientData[4].Equals(""))
@@ -55,7 +55,7 @@ namespace ePsychologist.Models
                         patientData[4] = "Jesteś zdrowy";
                     else
                         patientData[4] = "Jesteś chory na schizofrenie";
-                   
+
 
                     return patientData;
 
@@ -66,7 +66,7 @@ namespace ePsychologist.Models
         public void UpdatePatientInfo(int userId, string name, string surname, string sex, string dateOfBirth)
         {
             string query = $"UPDATE personals SET name = '{name}', surname ='{surname}', sex = '{sex}', date_of_birth='{dateOfBirth}' WHERE id_u={userId}";
-            using(MySqlCommand command = new MySqlCommand(query,cnn))
+            using (MySqlCommand command = new MySqlCommand(query, cnn))
             {
                 command.ExecuteNonQuery();
             }
@@ -74,11 +74,23 @@ namespace ePsychologist.Models
 
         public void setDiagnoze(int userId, string results)
         {
-            Debug.WriteLine("results: " + results);
-            Debug.WriteLine("userId: " + userId);
             string query = $"UPDATE personals SET diagnosis = '{results}' WHERE id_u ={userId};";
             using (MySqlCommand command = new MySqlCommand(query, cnn))
             {
+                command.ExecuteNonQuery();
+            }
+        }
+
+        public void setBrainScan(int chosenUserId, byte[] brainScan)
+        {
+            using (MySqlCommand command = new MySqlCommand())
+            {
+                command.Connection = cnn;
+                command.CommandText = $"UPDATE personals SET images = ?brainScan WHERE id_p = {chosenUserId};";
+                Debug.WriteLine(command.CommandText);
+                MySqlParameter fileContentParameter = new MySqlParameter("?brainScan", MySqlDbType.LongBlob, brainScan.Length);
+                fileContentParameter.Value = brainScan;
+                command.Parameters.Add(fileContentParameter);
                 command.ExecuteNonQuery();
             }
         }

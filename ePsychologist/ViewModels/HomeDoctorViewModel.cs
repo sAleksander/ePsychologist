@@ -17,6 +17,7 @@ namespace ePsychologist.ViewModels
         {
             MODEL = new modelDoctor();
             Refresh();
+
         }
 
         private void Refresh()
@@ -247,7 +248,15 @@ namespace ePsychologist.ViewModels
                         },
                         x =>
                         {
-                            return true;
+                            if (trueIndex == 0)
+                            {
+                                return false;
+                            }
+                            else
+                            {
+                                return true;
+                            }
+
                         }
                         );
                 }
@@ -274,6 +283,42 @@ namespace ePsychologist.ViewModels
                         );
                 }
                 return _logOut;
+            }
+        }
+
+        private ICommand _selectBrainScan = null;
+        public ICommand SelectBrainScan
+        {
+            get
+            {
+                if (_selectBrainScan == null)
+                {
+                    _selectBrainScan = new RelayCommand(
+                        x =>
+                        {
+                            MODEL.SetBrainScan(trueIndex);
+                            string[] temp = MODEL.GetPatientInfo(Index);
+                            PatientName = temp[0];
+                            PatientSurname = temp[1];
+                            PatientBirth = temp[2];
+                            PatientId = temp[3];
+                            PatientSex = temp[4];
+                            PatientIll = temp[5];
+                        },
+                        x =>
+                        {
+                            if (trueIndex == 0)
+                            {
+                                return false;
+                            }
+                            else
+                            {
+                                return true;
+                            }
+                        }
+                        );
+                }
+                return _selectBrainScan;
             }
         }
 
