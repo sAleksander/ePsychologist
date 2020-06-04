@@ -9,6 +9,8 @@ namespace ePsychologist.ViewModels
     using ePsychologist.ViewModels.MainView;
     using Models;
     using System.ComponentModel;
+    using System.Diagnostics;
+    using System.Windows;
     using System.Windows.Controls;
     using System.Windows.Input;
 
@@ -20,6 +22,7 @@ namespace ePsychologist.ViewModels
             model = new ModelPatient();
             refresh();
         }
+
 
         private void refresh()
         {
@@ -69,8 +72,8 @@ namespace ePsychologist.ViewModels
             get { return _patientGender; }
             set
             {
-                _patientGender = value;
-                OnPropertyChange(nameof(_patientGender));
+                    _patientGender = value;
+                    OnPropertyChange(nameof(_patientGender));
             }
         }
 

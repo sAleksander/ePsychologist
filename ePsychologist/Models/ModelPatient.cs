@@ -44,6 +44,7 @@ namespace ePsychologist.Models
 
         public void updatePatientInfo(string name, string surname, string dateOfBirth, string sex)
         {
+            Debug.Write($"plec {sex}");
             con.UpdatePatientInfo(con.GetUserID(), name, surname, sex, dateOfBirth);
         }
     }
