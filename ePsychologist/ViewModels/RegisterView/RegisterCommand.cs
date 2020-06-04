@@ -11,7 +11,7 @@ namespace ePsychologist.ViewModels.RegisterView
         public bool CanExecute(object parameter)
         {
             RegisterViewModel vm = (RegisterViewModel)parameter;
-            if (vm.ErrorLb != "Invaild data")
+            if (vm.ErrorLb != Properties.Literals.InvalidData)
                 return true;
             else
                 return false;
@@ -26,17 +26,14 @@ namespace ePsychologist.ViewModels.RegisterView
                 try
                 {
                     if (!(string.IsNullOrEmpty(vm.Name) || string.IsNullOrEmpty(vm.Surname) || string.IsNullOrEmpty(vm.Username) || string.IsNullOrEmpty(vm.Password)))
-                        con.Register(vm.Name, vm.Surname, vm.Sex, vm.DateOfBirth.ToString("yyyy-MM-dd"), vm.Username, vm.Password, vm.AccoundType);
+                        con.Register(vm.Name, vm.Surname, vm.Sex.ToCharArray()[0], vm.DateOfBirth.ToString("yyyy-MM-dd"), vm.Username, vm.Password, vm.AccoundType.ToCharArray()[0]);
                     else
-                        throw new Exception("Invaild data");
-                    vm.SuccessLb = "Success!";
+                        throw new Exception(Properties.Literals.InvalidData);
+                    vm.SuccessLb = Properties.Literals.Success;
                 }
-                catch(Exception e)
+                catch (Exception e)
                 {
-                    if (e.Message == "Invaild data")
-                        vm.ErrorLb = $"Invaild data {e}";
-                    else
-                        vm.ErrorLb = "Connection failed";
+                    vm.ErrorLb = e.Message;
                 }
             }
         }
