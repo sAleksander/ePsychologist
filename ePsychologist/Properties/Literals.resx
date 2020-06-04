@@ -117,13 +117,73 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AccoundAlreadyExist" xml:space="preserve">
+    <value>Konto o podanej nazwie użytkownika już istnieje</value>
+  </data>
+  <data name="AccoundType" xml:space="preserve">
+    <value>Typ konta</value>
+  </data>
+  <data name="Clear" xml:space="preserve">
+    <value>Wyczyść</value>
+  </data>
+  <data name="DateOfBirth" xml:space="preserve">
+    <value>Data urodzenia</value>
+  </data>
+  <data name="DBError" xml:space="preserve">
+    <value>Connection failed</value>
+  </data>
   <data name="description" xml:space="preserve">
     <value>ePsycholog jest to aplikacja dla pacjentów oraz ich lekarzy służąca do diagnozowania schizofrenii wspomagając się rezultatami badań sztucznej inteligencji.</value>
+  </data>
+  <data name="Doctor" xml:space="preserve">
+    <value>Doktor</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="Gender" xml:space="preserve">
+    <value>Płeć</value>
   </data>
   <data name="instruction" xml:space="preserve">
     <value>Aby poprawnie się zalogować, należy wypełnić pola znajdujące się po lewej stronie. Podaj imię, nazwisko, płeć oraz datę urodzenia. Następnie wybierz nazwę użytkownika oraz hasło, które będą potrzebne do zalogowania się. </value>
   </data>
+  <data name="InvalidData" xml:space="preserve">
+    <value>Invalid data</value>
+  </data>
+  <data name="Men" xml:space="preserve">
+    <value>Mężczyzna</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Imię</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>Hasło</value>
+  </data>
+  <data name="Patient" xml:space="preserve">
+    <value>Pacjent</value>
+  </data>
+  <data name="SignIn" xml:space="preserve">
+    <value>Zaloguj</value>
+  </data>
+  <data name="SignUp" xml:space="preserve">
+    <value>Rejestracja</value>
+  </data>
+  <data name="Success" xml:space="preserve">
+    <value>Success</value>
+  </data>
+  <data name="Surname" xml:space="preserve">
+    <value>Nazwisko</value>
+  </data>
+  <data name="Username" xml:space="preserve">
+    <value>Nazwa użytkownika</value>
+  </data>
   <data name="warning" xml:space="preserve">
     <value>Nikomu nie podawaj swojego hasła!</value>
+  </data>
+  <data name="Woman" xml:space="preserve">
+    <value>Kobieta</value>
+  </data>
+  <data name="WrongUsernameOrPassword" xml:space="preserve">
+    <value>Podano zły login lub hasło</value>
   </data>
 </root>

@@ -40,15 +40,18 @@ namespace ePsychologist.ViewModels
             }
         }
 
-        private char sex;
-        public char Sex
+        private string sex;
+        public string Sex
         {
             get { return sex; }
             set
             {
                 if (sex != value)
                 {
-                    sex = value;
+                    if (value == Properties.Literals.Men)
+                        sex = "M";
+                    else
+                        sex = "W";
                     OnPropertyChange(nameof(Sex));
                     ErrorLb = null;
                     SuccessLb = null;
@@ -73,7 +76,7 @@ namespace ePsychologist.ViewModels
                 }
                 else
                 {
-                    ErrorLb = "Invalid data";
+                    ErrorLb = Properties.Literals.InvalidData;
                 }
             }
         }
@@ -110,15 +113,18 @@ namespace ePsychologist.ViewModels
             }
         }
 
-        private char accoundType;
-        public char AccoundType
+        private string accoundType;
+        public string AccoundType
         {
             get { return accoundType; }
             set
             {
                 if (accoundType != value)
                 {
-                    accoundType = value;
+                    if (value == Properties.Literals.Patient)
+                        accoundType = "P";
+                    else
+                        accoundType = "D";
                     OnPropertyChange(nameof(AccoundType));
                     ErrorLb = null;
                     SuccessLb = null;

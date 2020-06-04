@@ -23,7 +23,7 @@
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0">
             <Button HorizontalAlignment="Left" Content=" Back " Margin="5" Command="{Binding Gotologin, Mode=OneWay, Source={StaticResource viewModel}}"/>
-            <Label Content="Sign Up" FontSize="40" HorizontalAlignment="Center" Margin="0,-30,0,0"/>
+            <Label Content="{Binding SignUp, Mode=OneWay, Source={StaticResource literals}}" FontSize="40" HorizontalAlignment="Center" Margin="0,-30,0,0"/>
             <Label Foreground="Red" MinHeight="30" Margin="0 -10" Content="{Binding ErrorLb, Source={StaticResource viewModel}}" />
             <Label Foreground="Green" MinHeight="30" Margin="0 -20" Content="{Binding SuccessLb, Source={StaticResource viewModel}}" />
         </StackPanel>
@@ -34,38 +34,38 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <StackPanel Grid.Column="0">
-                <Label Content="Name" HorizontalAlignment="Left" Margin="20, 10, 0, 5"/>
+                <Label Content="{Binding Name, Mode=OneWay, Source={StaticResource literals}}" HorizontalAlignment="Left" Margin="20, 10, 0, 5"/>
 
                 <TextBox Text="{Binding Name}" HorizontalAlignment="Left" Margin="20, 0, 10, 0" MaxLength="13" Width="135"/>
 
-                <Label Content="Surname" HorizontalAlignment="Left" Margin="20, 10, 0, 5"/>
+                <Label Content="{Binding Surname, Mode=OneWay, Source={StaticResource literals}}" HorizontalAlignment="Left" Margin="20, 10, 0, 5"/>
 
                 <TextBox Text="{Binding Surname}"  HorizontalAlignment="Left" Margin="20, 0, 10, 0" MaxLength="13" Width="135"/>
                 <StackPanel Orientation="Horizontal">
                     <StackPanel>
-                        <Label Content="Sex" HorizontalAlignment="Left" Margin="15, 10, 0, 5"/>
-                    <ListBox SelectedValue="{Binding Sex, Mode=TwoWay,Converter={StaticResource stringToCharConverter}}" HorizontalAlignment="Left" Margin="10, 0" >
-                        <ListBoxItem>Woman</ListBoxItem>
-                        <ListBoxItem>Men</ListBoxItem>
-                    </ListBox>
+                        <Label Content="{Binding Gender, Mode=OneWay, Source={StaticResource literals}}" HorizontalAlignment="Left" Margin="15, 10, 0, 5"/>
+                    <ListBox SelectedValue="{Binding Sex, Mode=TwoWay}" HorizontalAlignment="Left" Margin="10, 0" >
+                            <ListBoxItem Content="{Binding Woman, Mode=OneWay, Source={StaticResource literals}}"/>
+                            <ListBoxItem Content="{Binding Men, Mode=OneWay, Source={StaticResource literals}}" />
+                        </ListBox>
                 </StackPanel>
                     <StackPanel>
-                <Label Content="Date of birth" HorizontalAlignment="Left" Margin="0, 10, 0, 5"/>
+                <Label Content="{Binding DateOfBirth, Mode=OneWay, Source={StaticResource literals}}" HorizontalAlignment="Left" Margin="0, 10, 0, 5"/>
                         <DatePicker SelectedDate="{Binding DateOfBirth}" />
                     </StackPanel>
                 </StackPanel>
             </StackPanel>
             <StackPanel Grid.Column="1">
-                <Label Content="Username" HorizontalAlignment="Left" Margin="20, 10, 0, 5"/>
+                <Label Content="{Binding Username, Mode=OneWay, Source={StaticResource literals}}" HorizontalAlignment="Left" Margin="20, 10, 0, 5"/>
                 <TextBox Text="{Binding Username}"  HorizontalAlignment="Left" Margin="20, 0, 10, 0" MaxLength="13" Width="135"/>
-                <Label Content="Password" HorizontalAlignment="Left" Margin="20, 10, 0, 5"/>
+                <Label Content="{Binding Password, Mode=OneWay, Source={StaticResource literals}}" HorizontalAlignment="Left" Margin="20, 10, 0, 5"/>
                 <TextBox x:Name="PasswordBox" Text="{Binding Password}"  HorizontalAlignment="Left" Margin="20, 0, 10, 0" MaxLength="13" Height="18" Width="135" Style="{StaticResource customFont}" FontSize="8"  AllowDrop="False"  VerticalContentAlignment="Center"/>
-                <Label Content="Accound type" HorizontalAlignment="Left" Margin="20, 10, 0, 5"/>
-                <ListBox SelectedValue="{Binding AccoundType, Converter={StaticResource stringToCharConverter}}" HorizontalAlignment="Left" Margin="20, 0">
-                    <ListBoxItem>Patient</ListBoxItem>
-                    <ListBoxItem>Doctor</ListBoxItem>
+                <Label Content="{Binding AccoundType, Mode=OneWay, Source={StaticResource literals}}" HorizontalAlignment="Left" Margin="20, 10, 0, 5"/>
+                <ListBox SelectedValue="{Binding AccoundType}" HorizontalAlignment="Left" Margin="20, 0">
+                    <ListBoxItem Content="{Binding Patient, Mode=OneWay, Source={StaticResource literals}}"/>
+                    <ListBoxItem Content="{Binding Doctor, Mode=OneWay, Source={StaticResource literals}}"/>
                 </ListBox>
-                <Button Content="Sign Up" MinHeight="30" MinWidth="60" HorizontalAlignment="Center" Margin="0,50,0,0" Command="{Binding Register, Mode=OneWay, Source={StaticResource viewModel}}" CommandParameter="{DynamicResource viewModel}"/>
+                <Button Content="{Binding SignUp, Mode=OneWay, Source={StaticResource literals}}" MinHeight="30" MinWidth="60" HorizontalAlignment="Center" Margin="0,50,0,0" Command="{Binding Register, Mode=OneWay, Source={StaticResource viewModel}}" CommandParameter="{DynamicResource viewModel}"/>
             </StackPanel>
             <Grid Grid.Column="2">
                 <StackPanel>

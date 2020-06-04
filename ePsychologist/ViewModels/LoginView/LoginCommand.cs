@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Diagnostics;
 using System.Windows.Input;
 using ePsychologist.Models;
 using ePsychologist.ViewModels.MainView;
@@ -34,10 +33,10 @@ namespace ePsychologist.ViewModels.LoginView
                 }
                 catch(Exception e)
                 {
-                    if(e.Message == "Wrong username or password")
-                        viewModel.Error = "Wrong username or password";
+                    if(e.Message == Properties.Literals.WrongUsernameOrPassword)
+                        viewModel.Error = Properties.Literals.WrongUsernameOrPassword;
                     else
-                        viewModel.Error = "Connection failed";
+                        viewModel.Error = Properties.Literals.DBError;
                 }
                 
             }

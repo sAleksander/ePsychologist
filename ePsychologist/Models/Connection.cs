@@ -273,6 +273,13 @@ namespace ePsychologist.Models
             try
             {
                 command1.ExecuteNonQuery();
+            }
+            catch
+            {
+                throw new Exception(Properties.Literals.AccoundAlreadyExist);
+            }
+            try
+            {
                 using (MySqlCommand command2 = new MySqlCommand(
                 $"SELECT id_u, users.type FROM users WHERE username = '{username}' AND password = '{hashedPassword}';", cnn))
                 {
@@ -289,7 +296,7 @@ namespace ePsychologist.Models
             }
             catch
             {
-                throw new Exception("Invaild data");
+                throw new Exception(Properties.Literals.InvalidData);
             }
         }
 
