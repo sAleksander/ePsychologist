@@ -85,16 +85,22 @@ namespace ePsychologist.Models
 
         public void setBrainScan(int chosenUserId, byte[] brainScan)
         {
-            using (MySqlCommand command = new MySqlCommand())
-            {
-                command.Connection = cnn;
-                command.CommandText = $"UPDATE personals SET images = ?brainScan WHERE id_p = {chosenUserId};";
-                Debug.WriteLine(command.CommandText);
-                MySqlParameter fileContentParameter = new MySqlParameter("?brainScan", MySqlDbType.LongBlob, brainScan.Length);
-                fileContentParameter.Value = brainScan;
-                command.Parameters.Add(fileContentParameter);
-                command.ExecuteNonQuery();
-            }
+            var command = new MySqlCommand("", cnn);
+
+            var userImage = brainScan;
+            var userId = chosenUserId;
+            command.CommandText = "UPDATE personals SET Images = @userImage WHERE Id_u = @userId;";
+
+            var paramUserImage = new MySqlParameter("@userImage", MySqlDbType.Blob, userImage.Length);
+            var paramUserId = new MySqlParameter("@userId", MySqlDbType.Int32,4);
+
+            paramUserImage.Value = userImage;
+            paramUserId.Value = userId;
+
+            command.Parameters.Add(paramUserImage);
+            command.Parameters.Add(paramUserId);
+
+            command.ExecuteNonQuery();
         }
 
 
