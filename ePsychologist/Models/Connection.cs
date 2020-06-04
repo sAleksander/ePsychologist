@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
 using System.IO;
@@ -81,38 +82,50 @@ namespace ePsychologist.Models
             }
         }
 
+
         public void setBrainScan(int chosenUserId, byte[] brainScan)
         {
-            using (MySqlCommand command = new MySqlCommand())
-            {
-                command.Connection = cnn;
-                command.CommandText = $"UPDATE personals SET images = ?brainScan WHERE id_p = {chosenUserId};";
-                Debug.WriteLine(command.CommandText);
-                MySqlParameter fileContentParameter = new MySqlParameter("?brainScan", MySqlDbType.LongBlob, brainScan.Length);
-                fileContentParameter.Value = brainScan;
-                command.Parameters.Add(fileContentParameter);
-                command.ExecuteNonQuery();
-            }
+            var command = new MySqlCommand("", cnn);
+
+            var userImage = brainScan;
+            var userId = chosenUserId;
+            command.CommandText = "UPDATE personals SET Images = @userImage WHERE Id_u = @userId;";
+
+            var paramUserImage = new MySqlParameter("@userImage", MySqlDbType.Blob, userImage.Length);
+            var paramUserId = new MySqlParameter("@userId", MySqlDbType.Int32,4);
+
+            paramUserImage.Value = userImage;
+            paramUserId.Value = userId;
+
+            command.Parameters.Add(paramUserImage);
+            command.Parameters.Add(paramUserId);
+
+            command.ExecuteNonQuery();
         }
+
 
         public Bitmap[] getPatientsBrainScans(string searchParameter)
         {
-            string query = $"SELECT images FROM personals;";
+            string query = $"SELECT images, id_u FROM personals;";
             if (searchParameter != "")
             {
-                query = $"SELECT images FROM personals WHERE Name Like '%{searchParameter}%';";
+                query = $"SELECT images, id_u FROM personals WHERE Name Like '%{searchParameter}%';";
             }
             using (MySqlCommand command = new MySqlCommand(
                 query, cnn))
             {
                 int amount = 0;
+                List<int> patients = patientsIds();
                 using (MySqlDataReader reader = command.ExecuteReader())
                 {
                     if (reader.HasRows)
                     {
                         while (reader.Read())
                         {
+                            if (patients.Contains(int.Parse(reader[1].ToString())))
+                            {
                             amount++;
+                            }
                         }
                     }
                 }
@@ -122,25 +135,48 @@ namespace ePsychologist.Models
                     Bitmap[] patienBase = new Bitmap[amount];
                     while (reader.Read())
                     {
-                        byte[] converter = reader[0] as byte[];
-                        if (converter == null)
+                        if (patients.Contains(int.Parse(reader[1].ToString())))
                         {
-                            patienBase[j] = null;
-                        }
-                        else
-                        {
-                            using (var ms = new MemoryStream(converter))
+                            byte[] converter = reader[0] as byte[];
+                            if (converter == null)
                             {
-                                patienBase[j] = new Bitmap(ms);
+                                patienBase[j] = null;
                             }
+                            else
+                            {
+                                using (var ms = new MemoryStream(converter))
+                                {
+                                    patienBase[j] = new Bitmap(ms);
+                                }
+                            }
+                            j++;
                         }
-                        j++;
                     }
                     return patienBase;
                 }
             }
         }
 
+        private List<int> patientsIds()
+        {
+            List<int> result = new List<int>();
+            string query = $"SELECT id_u diagnosis FROM users WHERE Type = 'P';";
+            using (MySqlCommand command = new MySqlCommand(
+               query, cnn))
+            {
+                using (MySqlDataReader reader = command.ExecuteReader())
+                {
+                    if (reader.HasRows)
+                    {
+                        while (reader.Read())
+                        {
+                            result.Add(int.Parse(reader[0].ToString()));
+                        }
+                    }
+                }
+            }
+            return result;
+        }
 
         public string[][] getPatients(string searchParameter)
         {
@@ -153,13 +189,17 @@ namespace ePsychologist.Models
                 query, cnn))
             {
                 int amount = 0;
+                List<int> patients = patientsIds();
                 using (MySqlDataReader reader = command.ExecuteReader())
                 {
                     if (reader.HasRows)
                     {
                         while (reader.Read())
                         {
+                            if (patients.Contains(int.Parse(reader[0].ToString())))
+                            {
                             amount++;
+                            }
                         }
                     }
                 }
@@ -171,24 +211,29 @@ namespace ePsychologist.Models
                         string[][] patienBase = new string[amount][];
                         while (reader.Read())
                         {
-                            string[] newRow = new string[6];
-                            for (int i = 0; i < 5; i++)
+                            int checkId = int.Parse(reader[0].ToString());
+                            if (patients.Contains(checkId))
                             {
-                                newRow[i] = reader[i].ToString();
+
+                                string[] newRow = new string[6];
+                                for (int i = 0; i < 5; i++)
+                                {
+                                    newRow[i] = reader[i].ToString();
+                                }
+                                if (reader[5].ToString() == "" || reader[5].ToString() == null)
+                                {
+                                    newRow[5] = "Nie zdiagnozowany";
+                                }
+                                else
+                                {
+                                    newRow[5] = reader[5].ToString();
+                                }
+                                for (int i = 0; i < 5; i++)
+                                {
+                                }
+                                patienBase[j] = newRow;
+                                j++;
                             }
-                            if (reader[5].ToString() == "" || reader[5].ToString() == null)
-                            {
-                                newRow[5] = "Nie zdiagnozowany";
-                            }
-                            else
-                            {
-                                newRow[5] = reader[5].ToString();
-                            }
-                            for (int i = 0; i < 5; i++)
-                            {
-                            }
-                            patienBase[j] = newRow;
-                            j++;
                         }
                         return patienBase;
                     }
@@ -234,6 +279,13 @@ namespace ePsychologist.Models
             try
             {
                 command1.ExecuteNonQuery();
+            }
+            catch
+            {
+                throw new Exception(Properties.Literals.AccoundAlreadyExist);
+            }
+            try
+            {
                 using (MySqlCommand command2 = new MySqlCommand(
                 $"SELECT id_u, users.type FROM users WHERE username = '{username}' AND password = '{hashedPassword}';", cnn))
                 {
@@ -250,7 +302,7 @@ namespace ePsychologist.Models
             }
             catch
             {
-                throw new Exception("Invaild data");
+                throw new Exception(Properties.Literals.InvalidData);
             }
         }
 
