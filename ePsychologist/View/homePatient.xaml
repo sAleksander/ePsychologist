@@ -60,10 +60,11 @@
                     <DatePicker Grid.Row="3" Grid.Column="1" SelectedDate="{Binding PatientBirthday}" Background="SlateGray" BorderBrush="Gray" OpacityMask="SlateGray" VerticalAlignment="Center"/>
                 </Grid>
 
-                <local:MessageBoxPatient  x:Name="AskForConfirmation" Caprion="Czy na pewno chcesz zmienić dane?" Icon="Question" 
+                <local:MessageBoxPatient  x:Name="AskForConfirmation" Caprion="Zmiana danych" Icon="Question" 
                                           CommandYes="{Binding ConfirmChanges}"
-                                          Buttons="YesNo"/>
-                <Button Content="{Binding Source={x:Static resx:Resources.ConfrimLabel}}" FontSize="17" Background="Gray" BorderThickness="0" Margin="200,20,40,0" Command="{Binding ElementName=AskForConfirmation, Path=Show}"/>
+                                          Buttons="YesNo"
+                                          VerticalAlignment="Center"/>
+                <Button Content="{Binding Source={x:Static resx:Resources.ConfrimLabel}}" FontSize="17" Background="Gray" BorderThickness="0" Margin="200,20,40,0" Command="{Binding ElementName=AskForConfirmation, Path=Show}" CommandParameter="{Binding Source={x:Static resx:Resources.AskForConfirmation}}"/>
                 <Button Command="{Binding LogOut}" Content="{Binding Source={x:Static resx:Resources.LogOutLabel}}" FontSize="17" Margin="0,10,0,10" Background="Gray" BorderThickness="0"/>
             </StackPanel>
         </Grid>
