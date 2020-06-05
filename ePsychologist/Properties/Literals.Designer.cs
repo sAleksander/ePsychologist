@@ -19,7 +19,7 @@ namespace ePsychologist.Properties {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class Literals {
@@ -75,6 +75,15 @@ namespace ePsychologist.Properties {
         public static string AccoundType {
             get {
                 return ResourceManager.GetString("AccoundType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Analizuj.
+        /// </summary>
+        public static string Analyze {
+            get {
+                return ResourceManager.GetString("Analyze", resourceCulture);
             }
         }
         
@@ -255,6 +264,51 @@ namespace ePsychologist.Properties {
         public static string Patient {
             get {
                 return ResourceManager.GetString("Patient", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Id pacjenta.
+        /// </summary>
+        public static string PatientId {
+            get {
+                return ResourceManager.GetString("PatientId", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Wyczyść.
+        /// </summary>
+        public static string Reset {
+            get {
+                return ResourceManager.GetString("Reset", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Wybierz skan.
+        /// </summary>
+        public static string ScanSelection {
+            get {
+                return ResourceManager.GetString("ScanSelection", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Szukaj.
+        /// </summary>
+        public static string Search {
+            get {
+                return ResourceManager.GetString("Search", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Wyświetl.
+        /// </summary>
+        public static string Show {
+            get {
+                return ResourceManager.GetString("Show", resourceCulture);
             }
         }
         

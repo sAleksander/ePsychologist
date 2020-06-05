@@ -207,4 +207,23 @@
   <data name="WrongUsernameOrPassword" xml:space="preserve">
     <value>Podano zły login lub hasło</value>
   </data>
+  <data name="Analyze" xml:space="preserve">
+    <value>Analizuj</value>
+  </data>
+  <data name="PatientId" xml:space="preserve">
+    <value>Id pacjenta</value>
+  </data>
+  <data name="Reset" xml:space="preserve">
+    <value>Wyczyść</value>
+  </data>
+  <data name="ScanSelection" xml:space="preserve">
+    <value>Wybierz skan</value>
+    <comment>Wybierz skan</comment>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>Szukaj</value>
+  </data>
+  <data name="Show" xml:space="preserve">
+    <value>Wyświetl</value>
+  </data>
 </root>
