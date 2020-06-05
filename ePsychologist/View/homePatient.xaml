@@ -5,6 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:ePsychologist.View"
       xmlns:vm="clr-namespace:ePsychologist.ViewModels"
+      xmlns:resx="clr-namespace:ePsychologist.Properties"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="homePatient"
@@ -20,7 +21,7 @@
             <RowDefinition Height="0.13*"/>
             <RowDefinition Height="2*"/>
         </Grid.RowDefinitions>
-        <Label x:Name="homePatientLabel" Grid.Row="0" Content="MODUŁ PACJENTA" FontSize="17" HorizontalContentAlignment="Center" Background="LightGray" BorderThickness="0"/>
+        <Label x:Name="homePatientLabel" Grid.Row="0" Content="{Binding Source={x:Static resx:Resources.PatientLabel1}}"  FontSize="17" HorizontalContentAlignment="Center" Background="LightGray" BorderThickness="0"/>
         <Grid Grid.Row="2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="1*"/>
@@ -28,10 +29,10 @@
                 <ColumnDefinition Width="1*"/>
             </Grid.ColumnDefinitions>
             <StackPanel Grid.Column="1">
-                <Label  Content="Diagnoza" FontSize="17" Margin="0,10,0,10" Background="Gray" BorderThickness="0" HorizontalContentAlignment="Center"/>
+                <Label  Content="{Binding Source={x:Static resx:Resources.DiagnosisLabel}}" FontSize="17" Margin="0,10,0,10" Background="Gray" BorderThickness="0" HorizontalContentAlignment="Center"/>
 
                 <TextBlock Text="{Binding SicknessInfo}" FontSize="15" Background="LightGray" Height="30" VerticalAlignment="Center" />
-                <Label Content="Edytuj dane osobowe" FontSize="17" Margin="0,10,0,10" Background="Gray" BorderThickness="0" HorizontalContentAlignment="Center"/>
+                <Label Content="{Binding Source={x:Static resx:Resources.EditDataLabel}}" FontSize="17" Margin="0,10,0,10" Background="Gray" BorderThickness="0" HorizontalContentAlignment="Center"/>
 
                 <Grid>
                     <Grid.ColumnDefinitions>
@@ -44,26 +45,26 @@
                         <RowDefinition/>
                         <RowDefinition/>
                     </Grid.RowDefinitions>
-                    <Label Grid.Row="0" Grid.Column="0" Content="Imie" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="15"/>
+                    <Label Grid.Row="0" Grid.Column="0" Content="{Binding Source={x:Static resx:Resources.NameLabel}}" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="15"/>
                     <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding PatientName}" Background="LightGray" FontSize="15" VerticalAlignment="Center"/>
-                    <Label Grid.Row="1" Grid.Column="0" Content="Naziwsko" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="15"/>
+                    <Label Grid.Row="1" Grid.Column="0" Content="{Binding Source={x:Static resx:Resources.SurnameLabel}}" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="15"/>
                     <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding PatientSurname}" Background="LightGray" FontSize="15" VerticalAlignment="Center"/>
-                    <Label Grid.Row="2" Grid.Column="0" Content="Płeć" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="15"/>
+                    <Label Grid.Row="2" Grid.Column="0" Content="{Binding Source={x:Static resx:Resources.SexLabel}}" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="15"/>
 
                     <StackPanel Grid.Row="2" Grid.Column="1">
-                        <RadioButton Name="W" Content="Kobieta" IsChecked="{Binding PatientGender, Converter={StaticResource GenderConverter}, ConverterParameter=W}" CommandParameter="{Binding ElementName=W, Path=Content}"/>
-                        <RadioButton Name="M" Content="Mężczyzna" IsChecked="{Binding PatientGender, Converter={StaticResource GenderConverter}, ConverterParameter=M}" CommandParameter="{Binding ElementName=M, Path=Content}"/>
+                        <RadioButton Name="W" Content="{Binding Source={x:Static resx:Resources.SexKobieta}}" IsChecked="{Binding PatientGender, Converter={StaticResource GenderConverter}, ConverterParameter=W}" CommandParameter="{Binding ElementName=W, Path=Content}"/>
+                        <RadioButton Name="M" Content="{Binding Source={x:Static resx:Resources.SexMezczyzna}}" IsChecked="{Binding PatientGender, Converter={StaticResource GenderConverter}, ConverterParameter=M}" CommandParameter="{Binding ElementName=M, Path=Content}"/>
                     </StackPanel>
                     
-                    <Label Grid.Row="3" Grid.Column="0" FontSize="14" Content="Data urodzenia" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <Label Grid.Row="3" Grid.Column="0" FontSize="14" Content="{Binding Source={x:Static resx:Resources.BirthdayLabel}}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                     <DatePicker Grid.Row="3" Grid.Column="1" SelectedDate="{Binding PatientBirthday}" Background="SlateGray" BorderBrush="Gray" OpacityMask="SlateGray" VerticalAlignment="Center"/>
                 </Grid>
 
                 <local:MessageBoxPatient  x:Name="AskForConfirmation" Caprion="Czy na pewno chcesz zmienić dane?" Icon="Question" 
                                           CommandYes="{Binding ConfirmChanges}"
                                           Buttons="YesNo"/>
-                <Button Content="Zatwierdź" FontSize="17" Background="Gray" BorderThickness="0" Margin="200,20,40,0" Command="{Binding ElementName=AskForConfirmation, Path=Show}"/>
-                <Button Command="{Binding LogOut}" Content="Wyloguj się" FontSize="17" Margin="0,10,0,10" Background="Gray" BorderThickness="0"/>
+                <Button Content="{Binding Source={x:Static resx:Resources.ConfrimLabel}}" FontSize="17" Background="Gray" BorderThickness="0" Margin="200,20,40,0" Command="{Binding ElementName=AskForConfirmation, Path=Show}"/>
+                <Button Command="{Binding LogOut}" Content="{Binding Source={x:Static resx:Resources.LogOutLabel}}" FontSize="17" Margin="0,10,0,10" Background="Gray" BorderThickness="0"/>
             </StackPanel>
         </Grid>
 
