@@ -33,7 +33,7 @@ namespace ePsychologist.View
 
         protected static readonly DependencyProperty commandAfterProperty = DependencyProperty.Register("CommandAfter", typeof(ICommand), typeof(CommandDialogBox));
 
-        public string Caprion
+        public string Caption
         {
             get { return (string)GetValue(captionProperty); }
             set { SetValue(captionProperty, value); }

@@ -61,33 +61,6 @@ namespace ePsychologist.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Czy na pewno chcesz zmienić dane?.
-        /// </summary>
-        public static string AskForConfirmation {
-            get {
-                return ResourceManager.GetString("AskForConfirmation", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Data urodzenia.
-        /// </summary>
-        public static string BirthdayLabel {
-            get {
-                return ResourceManager.GetString("BirthdayLabel", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Zatwierdź.
-        /// </summary>
-        public static string ConfrimLabel {
-            get {
-                return ResourceManager.GetString("ConfrimLabel", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to schizofrenia.
         /// </summary>
         public static string DB {
@@ -129,87 +102,6 @@ namespace ePsychologist.Properties {
         public static string DB_USER {
             get {
                 return ResourceManager.GetString("DB_USER", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Diagnoza.
-        /// </summary>
-        public static string DiagnosisLabel {
-            get {
-                return ResourceManager.GetString("DiagnosisLabel", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Edytuj dane osobowe.
-        /// </summary>
-        public static string EditDataLabel {
-            get {
-                return ResourceManager.GetString("EditDataLabel", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Wyloguj się.
-        /// </summary>
-        public static string LogOutLabel {
-            get {
-                return ResourceManager.GetString("LogOutLabel", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Imię.
-        /// </summary>
-        public static string NameLabel {
-            get {
-                return ResourceManager.GetString("NameLabel", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to MODUŁ PACJENTA.
-        /// </summary>
-        public static string PatientLabel1 {
-            get {
-                return ResourceManager.GetString("PatientLabel1", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Kobieta.
-        /// </summary>
-        public static string SexKobieta {
-            get {
-                return ResourceManager.GetString("SexKobieta", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Płeć.
-        /// </summary>
-        public static string SexLabel {
-            get {
-                return ResourceManager.GetString("SexLabel", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Mężczyzna.
-        /// </summary>
-        public static string SexMezczyzna {
-            get {
-                return ResourceManager.GetString("SexMezczyzna", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Nazwisko.
-        /// </summary>
-        public static string SurnameLabel {
-            get {
-                return ResourceManager.GetString("SurnameLabel", resourceCulture);
             }
         }
     }

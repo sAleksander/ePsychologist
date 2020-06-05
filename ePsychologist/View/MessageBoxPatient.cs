@@ -94,7 +94,7 @@ namespace ePsychologist.View
 
             if (IsMessageBoxPatientShow)
             {
-                LastResult = MessageBox.Show((string)contentText, Caprion, Buttons);
+                LastResult = MessageBox.Show((string)contentText, Caption, Buttons);
                 onPropertyChanged("LastResult");
                 result = LastResult.Value;
             }

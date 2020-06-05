@@ -123,8 +123,14 @@
   <data name="AccoundType" xml:space="preserve">
     <value>Typ konta</value>
   </data>
+  <data name="AskForConfirmation" xml:space="preserve">
+    <value>Czy na pewno chcesz zmienić dane?</value>
+  </data>
   <data name="Clear" xml:space="preserve">
     <value>Wyczyść</value>
+  </data>
+  <data name="Confirm" xml:space="preserve">
+    <value>Zatwierdź</value>
   </data>
   <data name="DateOfBirth" xml:space="preserve">
     <value>Data urodzenia</value>
@@ -135,8 +141,14 @@
   <data name="description" xml:space="preserve">
     <value>ePsycholog jest to aplikacja dla pacjentów oraz ich lekarzy służąca do diagnozowania schizofrenii wspomagając się rezultatami badań sztucznej inteligencji.</value>
   </data>
+  <data name="Diagnosis" xml:space="preserve">
+    <value>Diagnoza</value>
+  </data>
   <data name="Doctor" xml:space="preserve">
     <value>Doktor</value>
+  </data>
+  <data name="EditData" xml:space="preserve">
+    <value>Edytuj Dane Osobowe</value>
   </data>
   <data name="Error" xml:space="preserve">
     <value>Error</value>
@@ -144,14 +156,23 @@
   <data name="Gender" xml:space="preserve">
     <value>Płeć</value>
   </data>
+  <data name="HomePatient" xml:space="preserve">
+    <value>MODUŁ PACJENTA</value>
+  </data>
   <data name="instruction" xml:space="preserve">
     <value>Aby poprawnie się zalogować, należy wypełnić pola znajdujące się po lewej stronie. Podaj imię, nazwisko, płeć oraz datę urodzenia. Następnie wybierz nazwę użytkownika oraz hasło, które będą potrzebne do zalogowania się. </value>
   </data>
   <data name="InvalidData" xml:space="preserve">
     <value>Invalid data</value>
   </data>
+  <data name="LogOut" xml:space="preserve">
+    <value>Wyloguj się</value>
+  </data>
   <data name="Men" xml:space="preserve">
     <value>Mężczyzna</value>
+  </data>
+  <data name="MessageBoxCaption" xml:space="preserve">
+    <value>Zmiana danych</value>
   </data>
   <data name="Name" xml:space="preserve">
     <value>Imię</value>
