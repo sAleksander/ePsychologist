@@ -265,7 +265,7 @@ namespace ePsychologist.Models
                         userType = reader[1].ToString()[0];
                     }
                     else
-                        throw new Exception("Wrong username or password");
+                        throw new Exception(Properties.Literals.WrongUsernameOrPassword);
                 }
             }
             return userType;

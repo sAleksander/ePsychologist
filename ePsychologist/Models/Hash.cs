@@ -11,17 +11,24 @@ namespace ePsychologist.Models
     {
         public static string GenerateSaltedHash(string password, string salt)
         {
-            HashAlgorithm algorithm = new SHA256Managed();
+            try
+            {
+                HashAlgorithm algorithm = new SHA256Managed();
 
-            byte[] passwordBytes = Encoding.Unicode.GetBytes(password);
-            byte[] saltBytes = Encoding.Unicode.GetBytes(salt);
+                byte[] passwordBytes = Encoding.Unicode.GetBytes(password);
+                byte[] saltBytes = Encoding.Unicode.GetBytes(salt);
 
-            byte[] passwordWithSaltBytes = new byte[passwordBytes.Length + saltBytes.Length];
-            saltBytes.CopyTo(passwordWithSaltBytes, 0);
-            passwordBytes.CopyTo(passwordWithSaltBytes, saltBytes.Length);
+                byte[] passwordWithSaltBytes = new byte[passwordBytes.Length + saltBytes.Length];
+                saltBytes.CopyTo(passwordWithSaltBytes, 0);
+                passwordBytes.CopyTo(passwordWithSaltBytes, saltBytes.Length);
 
-            byte[] hash = algorithm.ComputeHash(passwordWithSaltBytes);
-            return Convert.ToBase64String(hash);
+                byte[] hash = algorithm.ComputeHash(passwordWithSaltBytes);
+                return Convert.ToBase64String(hash);
+            }
+            catch
+            {
+                throw new Exception(Properties.Literals.WrongUsernameOrPassword);
+            }
         }
     }
 }
