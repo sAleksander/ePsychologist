@@ -68,7 +68,7 @@ namespace ePsychologist.ViewModels
                 {
                     if (dateOfBirth != value)
                     {
-                        dateOfBirth = value;
+                        dateOfBirth = value.Date;
                         OnPropertyChange(nameof(DateOfBirth));
                         ErrorLb = null;
                         SuccessLb = null;

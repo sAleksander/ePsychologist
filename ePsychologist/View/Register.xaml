@@ -12,7 +12,6 @@
 
     <Page.Resources>
         <vm:RegisterViewModel x:Key="viewModel"/>
-        <vm:StringToCharConverter x:Key="stringToCharConverter"/>
         <rs:Literals x:Key="literals"/>
     </Page.Resources>
 

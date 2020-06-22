@@ -118,7 +118,6 @@
     <Compile Include="ViewModels\RegisterViewModel.cs" />
     <Compile Include="ViewModels\RegisterView\RegisterCommand.cs" />
     <Compile Include="ViewModels\RegisterView\GotoLoginCommand.cs" />
-    <Compile Include="ViewModels\StringToCharConverter.cs" />
     <Compile Include="ViewModels\RelayCommand.cs" />
     <Compile Include="View\CommandDialogBox.cs" />
     <Compile Include="View\homeDoctor.xaml.cs">
@@ -195,9 +194,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Database\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
       <Visible>False</Visible>
