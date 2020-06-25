@@ -96,6 +96,19 @@ namespace ePsychologist.ViewModels
         {
             get
             {
+                if (_patientIll == "" || _patientIll == "Diagnose not found!")
+                {
+                    _patientIll = "Diagnoza jeszcze nie ustalona";
+                }
+                else
+                {
+                    int temp = int.Parse(_patientIll);
+                    if (temp < 20) _patientIll = $"Pacjent jest zdrowy. Wynik pomiaru: {temp}% zgodności";
+                    else if (temp < 40) _patientIll = $"Pacjent ma duże prawdopodobieństo bycia zdowym. Wynik pomiaru: {temp}% zgodności";
+                    else if (temp > 80) _patientIll = $"Pacjent jest chory. Wynik pomiaru: {temp}% zgodności";
+                    else if (temp > 60) _patientIll = $"Pacjent ma duże prawdopodobieństo bycia chorym. Wynik pomiaru: {temp}% zgodności";
+                    else _patientIll = $"Pomiar nie pewny. {temp}% zgodności";
+                }
                 return _patientIll;
             }
             set

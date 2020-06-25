@@ -52,38 +52,15 @@ namespace ePsychologist.Models
                     Debug.WriteLine("zdjecie jest nullem!");
                     return;
                 }
-                int healthy = 20;
-                int ill = 80;
                 int result = AI.Calculate(
                     patients.ElementAt(index).GetAge(),
                     patients.ElementAt(index).GetSex(),
                     patients.ElementAt(index).GetBrainScan()
                     );
-                if (result < healthy)
-                {
-                    Debug.WriteLine("zdrowy");
-                    DATABASE.setDiagnoze(
-                        patients.ElementAt(index).GetId(),
-                        "Pacjent jest zdrowy"
-                        );
-                }
-                else if (result > ill)
-                {
-                    Debug.WriteLine("nie zdrowy");
-                    DATABASE.setDiagnoze(
-                        patients.ElementAt(index).GetId(),
-                        "Duże prawdopodobieństwo Shizofremi"
-                        );
-                }
-                else
-                {
-                    Debug.WriteLine("nie wiem");
-                    DATABASE.setDiagnoze(
-                        patients.ElementAt(index).GetId(),
-                        "Pomiar nie pewny brak diagnozy"
-                        );
-                }
-                Debug.WriteLine(result + " doszedlem do konca");
+                DATABASE.setDiagnoze(
+                    patients.ElementAt(index).GetId(),
+                    result
+                    );
                 refreshPatients("");
             }
 

@@ -73,7 +73,7 @@ namespace ePsychologist.Models
             }
         }
 
-        public void setDiagnoze(int userId, string results)
+        public void setDiagnoze(int userId, int results)
         {
             string query = $"UPDATE personals SET diagnosis = '{results}' WHERE id_u ={userId};";
             using (MySqlCommand command = new MySqlCommand(query, cnn))
@@ -222,7 +222,7 @@ namespace ePsychologist.Models
                                 }
                                 if (reader[5].ToString() == "" || reader[5].ToString() == null)
                                 {
-                                    newRow[5] = "Nie zdiagnozowany";
+                                    newRow[5] = "";
                                 }
                                 else
                                 {
