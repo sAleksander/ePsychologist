@@ -50,12 +50,29 @@ namespace ePsychologist.Models
                         patientData[i] = reader[i].ToString();
                     }
 
-                    if (patientData[4].Equals(""))
-                        patientData[4] = "Oczekuje na diagnozę";
-                    else if (patientData[4].Equals("Pacjent jest zdrowy"))
-                        patientData[4] = "Jesteś zdrowy";
+                    int procent = 0;
+                    if (!patientData[4].Equals(""))
+                    {
+                        procent = int.Parse(patientData[4]);
+
+                        switch (procent)
+                        {
+                            case int n when procent <= 20:
+                                patientData[4] = "Jesteś zdrowy.";
+                                break;
+                            case int n when procent > 20 && procent <= 40:
+                                patientData[4] = "Prawdodobnie jesteś zdrowy. Potrzebna jest dodatkowa analiza.";
+                                break;
+                            case int n when procent >= 60 && procent < 80:
+                                patientData[4] = "Prawdopdobnie jesteś chory. Potrzebna jest dodatkowa analiza";
+                                break;
+                            case int n when procent > 80:
+                                patientData[4] = "Jesteś chory.";
+                                break;
+                        }
+                    }
                     else
-                        patientData[4] = "Jesteś chory na schizofrenie";
+                        patientData[4] = "Twoje badania czekają na diagnozę.";
 
 
                     return patientData;

@@ -38,14 +38,13 @@ namespace ePsychologist.Models
 
         public string getDiagnosis()
         {
-            Debug.WriteLine($"DIagnoza {patient[4]}");
             return patient[4];
         }
 
         public void updatePatientInfo(string name, string surname, string dateOfBirth, string sex)
         {
-            Debug.Write($"plec {sex}");
             con.UpdatePatientInfo(con.GetUserID(), name, surname, sex, dateOfBirth);
         }
+
     }
 }

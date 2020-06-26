@@ -19,9 +19,11 @@
     <Grid DataContext="{StaticResource homePatientViewModel}">
         <Grid.RowDefinitions>
             <RowDefinition Height="0.13*"/>
+            <RowDefinition Height="0.13*"/>
             <RowDefinition Height="2*"/>
         </Grid.RowDefinitions>
         <Label x:Name="homePatientLabel" Grid.Row="0" Content="{Binding Source={x:Static resx:Literals.HomePatient}}"  FontSize="17" HorizontalContentAlignment="Center" Background="LightGray" BorderThickness="0"/>
+        <Label Grid.Row="1" Content="{Binding Welcome}" FontSize="17" HorizontalContentAlignment="Center" Background="LightGray" BorderThickness="0"/>
         <Grid Grid.Row="2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="1*"/>
@@ -48,7 +50,7 @@
                     <Label Grid.Row="0" Grid.Column="0" Content="{Binding Source={x:Static resx:Literals.Name}}" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="15"/>
                     <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding PatientName}" Background="LightGray" FontSize="15" VerticalAlignment="Center"/>
                     <Label Grid.Row="1" Grid.Column="0" Content="{Binding Source={x:Static resx:Literals.Surname}}" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="15"/>
-                    <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding PatientSurname}" Background="LightGray" FontSize="15" VerticalAlignment="Center"/>
+                    <TextBox x:Name="Name" Grid.Row="1" Grid.Column="1" Text="{Binding PatientSurname}" Background="LightGray" FontSize="15" VerticalAlignment="Center"/>
                     <Label Grid.Row="2" Grid.Column="0" Content="{Binding Source={x:Static resx:Literals.Gender}}" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="15"/>
 
                     <StackPanel Grid.Row="2" Grid.Column="1">

@@ -31,6 +31,7 @@ namespace ePsychologist.ViewModels
             PatientGender = model.getSex();
             PatientBirthday = Convert.ToDateTime(model.getDateOfBirth());
             SicknessInfo = model.getDiagnosis();
+            Welcome = "Witaj " + PatientName + "!";
         }
 
         private string _patientName;
@@ -88,6 +89,16 @@ namespace ePsychologist.ViewModels
             }
         }
 
+        private string _welcome;
+        public string Welcome
+        {
+            get { return _welcome; }
+            set
+            {
+                _welcome = value;
+                OnPropertyChange(nameof(_welcome));
+            }
+        }
 
 
         private ICommand _confirmChanges = null;
@@ -101,6 +112,7 @@ namespace ePsychologist.ViewModels
                         x =>
                         {
                             model.updatePatientInfo(PatientName,PatientSurname,PatientBirthday.ToString("yyyy-MM-dd"),PatientGender);
+                            refresh();
                         },
                         x =>
                         {
