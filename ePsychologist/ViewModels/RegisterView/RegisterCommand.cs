@@ -22,9 +22,9 @@ namespace ePsychologist.ViewModels.RegisterView
             RegisterViewModel vm = (RegisterViewModel)parameter;
             if (vm != null)
             {
-                Connection con = Connection.DbConnection;
                 try
                 {
+                    Connection con = Connection.DbConnection;
                     if (!(string.IsNullOrEmpty(vm.Name) || string.IsNullOrEmpty(vm.Surname) || string.IsNullOrEmpty(vm.Username) || string.IsNullOrEmpty(vm.Password)))
                         con.Register(vm.Name, vm.Surname, vm.Sex.ToCharArray()[0], vm.DateOfBirth.ToString("yyyy-MM-dd"), vm.Username, vm.Password, vm.AccoundType.ToCharArray()[0]);
                     else
